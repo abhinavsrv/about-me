@@ -32,9 +32,9 @@ export const projects: Project[] = [
   {
     id: "mental-roberta", number: "01", category: "Research system", track: "Research", focus: "Healthcare AI", status: "Research internship · 2026", title: "Mental-RoBERTa",
     description: "End-to-end early screening software for mental anomalies using transformer and statistical methods.",
-    evidence: "LinkedIn describes a 96% accuracy result; the public portfolio does not add undisclosed clinical data, patient information, or benchmark details.",
+    evidence: "Mental-RoBERTa achieved 96% accuracy; the public portfolio does not add undisclosed clinical data, patient information, or benchmark details.",
     stack: ["Transformers", "Statistical Methods", "Healthcare NLP", "Calibration"], href: "https://github.com/abhinavsrv", featured: true,
-    detail: { question: "How can early multi-class screening better distinguish high-risk mental-health signals?", approach: "Designed end-to-end software around transformer and statistical methods during the NTNU research internship.", evidence: "The authenticated LinkedIn profile describes a 96% accuracy outcome. Further clinical-validation claims are intentionally not inferred.", scope: "Research Intern · NTNU · May 2026–present; supervised by Dr. Alok Mishra." },
+    detail: { question: "How can early multi-class screening better distinguish high-risk mental-health signals?", approach: "Designed end-to-end software around transformer and statistical methods during the NTNU research internship.", evidence: "Mental-RoBERTa achieved 96% accuracy. Further clinical-validation claims are intentionally not inferred.", scope: "Research Intern · NTNU · May 2026–present; supervised by Dr. Alok Mishra." },
   },
   {
     id: "dense-distillation", number: "02", category: "Research reproduction", track: "Research", focus: "Healthcare AI", status: "Independent reproduction · 2026", title: "Alignment-Free Dense Distillation",

@@ -16,7 +16,7 @@ const snapshotEntries = [
     type: "Research experience",
     title: "Research Intern",
     organization: "Norwegian University of Science and Technology (NTNU)",
-    detail: "Designed end-to-end early-detection software using transformers and statistical methods; LinkedIn records a 96% accuracy outcome without additional public clinical-validation detail.",
+    detail: "Designed end-to-end early-detection software using transformers and statistical methods, achieving 96% accuracy; additional public clinical-validation detail is not presented here.",
   },
   {
     range: "2024",

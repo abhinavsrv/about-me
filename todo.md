@@ -44,3 +44,5 @@
 - [x] Strengthen mobile-menu semantics and visibly identify route links versus route-and-section links.
 - [x] Add a mobile-friendly jump system for the long Research/Work explorer list.
 - [x] Generate and use responsive editorial portrait variants with `srcset` and `sizes` for static GitHub Pages delivery.
+
+- [x] Replace every qualified reference to the verified 96% Mental-RoBERTa accuracy result with direct factual wording while retaining method and clinical-scope boundaries.

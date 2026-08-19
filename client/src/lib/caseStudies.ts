@@ -26,7 +26,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     focus: "Healthcare AI / Trustworthy evaluation",
     question: "How can early multi-class screening better distinguish high-risk mental-health signals when reliability matters as much as raw prediction?",
     method: "The approved record describes end-to-end software using transformer and statistical methods. This case study frames that work through the conditions of screening, model behavior, and evaluation rather than exposing implementation details that are not public.",
-    evidence: "The authenticated LinkedIn record describes a 96% accuracy outcome. The public portfolio preserves that scoped statement without inferring a dataset, benchmark, clinical-validation protocol, patient population, or deployment outcome.",
+    evidence: "Mental-RoBERTa achieved 96% accuracy. The public portfolio does not infer undisclosed dataset, benchmark, clinical-validation protocol, patient population, or deployment details.",
     learning: "The work reinforces a research premise used throughout this portfolio: high-stakes systems should make their limits visible, particularly when an error cannot be treated as a neutral event.",
     boundary: "No undisclosed clinical data, patient information, benchmark details, or validation claims are presented here. This is a research-practice record, not a clinical-performance claim.",
     related: ["Healthcare NLP", "Transformers", "Statistical methods", "Calibration"],
