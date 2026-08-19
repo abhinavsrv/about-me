@@ -26,3 +26,5 @@
 - [x] Extend site navigation, metadata, responsive layouts, and route fallbacks for the new portfolio pages.
 - [x] Add route-aware title and description metadata for the Research, Profile, and Contact pages, then verify it in the static build.
 - [x] Restore homepage title and description metadata after navigating back from a routed editorial page.
+
+- [x] Complete a detailed 10-item audit of the expanded portfolio and prioritize practical improvements before implementation.
