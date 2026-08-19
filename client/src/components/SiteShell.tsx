@@ -46,6 +46,28 @@ export default function SiteShell({ children }: { children: ReactNode }) {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("main section"));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      sections.forEach((section) => section.classList.add("is-revealed"));
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.08, rootMargin: "0px 0px -6%" },
+    );
+    sections.forEach((section) => {
+      section.classList.add("scroll-reveal");
+      observer.observe(section);
+    });
+    return () => observer.disconnect();
+  }, [location]);
+
   const closeMenu = () => setMenuOpen(false);
   const isActive = (match: string) => match === "/work" ? location.startsWith("/work/") : location === match;
 

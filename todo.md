@@ -48,3 +48,6 @@
 - [x] Replace every qualified reference to the verified 96% Mental-RoBERTa accuracy result with direct factual wording while retaining method and clinical-scope boundaries.
 
 - [x] Rebalance the portfolio’s dark visual system so portraits, surfaces, controls, and text remain clearly visible without losing the refined design direction.
+
+- [x] Restore a true pure-black background while keeping content panels, portrait framing, and readable text clearly separated.
+- [x] Add Apple-style motion: eased scroll reveals, refined section entrances, and tactile hover/press feedback with reduced-motion support.

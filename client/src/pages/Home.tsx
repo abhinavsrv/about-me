@@ -7,24 +7,9 @@ import HomeIndexSections from "@/components/HomeIndexSections";
 import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
 import { portfolioPath } from "@/lib/routes";
 import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
-import { useEffect } from "react";
 
 export default function Home() {
   usePageMetadata(portfolioPageMetadata.home);
-
-  useEffect(() => {
-    const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section"));
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      sections.forEach((section) => section.classList.add("is-revealed"));
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-revealed"); observer.unobserve(entry.target); } }),
-      { threshold: 0.1, rootMargin: "0px 0px -8%" },
-    );
-    sections.forEach((section) => { section.classList.add("scroll-reveal"); observer.observe(section); });
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <SiteShell>
