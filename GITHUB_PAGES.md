@@ -8,6 +8,8 @@ The public interface now combines homepage anchors with routed Research, Profile
 
 The three routed pages also set their own document title and description after client initialization. The static `index.html` metadata remains the fallback for the homepage and for clients that do not execute JavaScript.
 
+The build now writes static HTML shells for the routed editorial pages and flagship case studies. When GitHub Actions runs, `VITE_SITE_URL` is derived from the repository owner and name, allowing those route shells to include a canonical URL and Open Graph metadata. For a root user or organization site, set `VITE_SITE_URL` to the root site URL alongside the base-path change described above.
+
 ## Persistent content and the Pages fallback
 
 The portfolio now has a persistent database-backed content model for research/work items, profile records, and site settings. The app deployment uses typed procedures under `/api/trpc` to load those records at runtime. **GitHub Pages cannot host that database server or run the `/api/trpc` endpoint.**

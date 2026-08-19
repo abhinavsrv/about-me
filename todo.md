@@ -28,3 +28,19 @@
 - [x] Restore homepage title and description metadata after navigating back from a routed editorial page.
 
 - [x] Complete a detailed 10-item audit of the expanded portfolio and prioritize practical improvements before implementation.
+
+- [x] Implement reusable, evidence-rich flagship case-study routes using only approved portfolio content and clearly stated evidence boundaries.
+- [x] Refocus the home page into an editorial index with route-specific primary actions and less duplicated long-form content.
+- [x] Add an outputs record that distinguishes approved research artifacts, software, technical notes, credentials, and unavailable publication material.
+- [x] Add active navigation states, accessible mobile navigation semantics, and clear scroll-versus-route wayfinding.
+- [x] Standardize portrait crops, overlays, captions, and loading behavior as a controlled editorial image system.
+- [x] Improve essential mobile typography, control target sizes, and long-project-list navigation.
+- [x] Produce static, route-specific GitHub Pages preview HTML with titles, descriptions, canonical URLs, and social metadata.
+- [x] Reduce route-level JavaScript and image delivery cost through code splitting and responsive image attributes.
+- [x] Add privacy-conscious aggregate interaction measurement that degrades safely without a server endpoint.
+- [x] Verify all audit-driven changes across static GitHub Pages builds, responsive breakpoints, automated tests, and public routes.
+
+- [x] Add an explicit technical-notes availability state to the Outputs record without implying an unpublished artifact exists.
+- [x] Strengthen mobile-menu semantics and visibly identify route links versus route-and-section links.
+- [x] Add a mobile-friendly jump system for the long Research/Work explorer list.
+- [x] Generate and use responsive editorial portrait variants with `srcset` and `sizes` for static GitHub Pages delivery.

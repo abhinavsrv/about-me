@@ -9,7 +9,7 @@ export default function AboutSection() {
     <section id="about" className="about-section" aria-labelledby="about-title">
       <div className="section-index" aria-hidden="true"><span>01A</span><i /></div>
       <div className="about-portrait-wrap">
-        <img src={portraitUrl} alt="Abhinav Srivastava seated by a window in a sunlit setting" />
+        <img src={portraitUrl} srcSet="/manus-storage/abhinav-window-seated-640_f88b9a16.webp 640w, https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/QrDQxLNtAPftnhMd.webp 768w" sizes="(max-width: 760px) 88vw, 35vw" alt="Abhinav Srivastava seated by a window in a sunlit setting" width="768" height="1024" loading="lazy" decoding="async" />
         <span className="about-portrait-beam" aria-hidden="true" />
         <p>ABHINAV / OBSERVATION BEFORE OPTIMIZATION</p>
       </div>

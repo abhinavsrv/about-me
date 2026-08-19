@@ -5,6 +5,9 @@
 import { ArrowLeft, ArrowUpRight, X } from "lucide-react";
 import { useState } from "react";
 import { trpc } from "@/lib/trpc";
+import { getCaseStudy } from "@/lib/caseStudies";
+import { portfolioPath } from "@/lib/routes";
+import { trackPortfolioEvent } from "@/lib/portfolioAnalytics";
 
 export type ProjectTrack = "Research" | "Applied Work" | "Technical Practice";
 export type ProjectFocus = "Healthcare AI" | "Financial Systems" | "LLM Systems" | "Decision Intelligence" | "Algorithms";
@@ -102,6 +105,11 @@ export default function WorkSection() {
   const visibleProjects = explorerProjects.filter((project) => (activeTrack === "All" || project.track === activeTrack) && (activeFocus === "All" || project.focus === activeFocus));
   const tracks: Array<ProjectTrack | "All"> = ["All", "Research", "Applied Work", "Technical Practice"];
   const focuses: Array<ProjectFocus | "All"> = ["All", "Healthcare AI", "Financial Systems", "LLM Systems", "Decision Intelligence", "Algorithms"];
+  const jumpToFocus = (focus: ProjectFocus) => {
+    setActiveTrack("All");
+    setActiveFocus(focus);
+    window.requestAnimationFrame(() => document.getElementById("work-list")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+  };
 
   return (
     <section id="work" className="work-section" aria-labelledby="work-title">
@@ -115,11 +123,12 @@ export default function WorkSection() {
         </div>
       </div>
       <p className="work-filter-result" aria-live="polite">Showing {visibleProjects.length} of {explorerProjects.length} records. <span>{persistedProjects.length > 0 ? "Persistent record set" : "Static Pages snapshot"}</span></p>
-      <div className="work-list">
+      <nav className="work-jump-nav" aria-label="Jump to common research focus areas"><span>Quick focus</span>{(["Healthcare AI", "Financial Systems", "LLM Systems", "Decision Intelligence", "Algorithms"] as ProjectFocus[]).map((focus) => <button type="button" key={focus} onClick={() => jumpToFocus(focus)}>{focus}</button>)}</nav>
+      <div className="work-list" id="work-list" tabIndex={-1}>
         {visibleProjects.map((project) => (
           <article className={`project-card ${project.featured ? "project-card--featured" : ""}`} key={project.id} id={project.id}>
             <div className="project-card__topline"><span>{project.number}</span><span>{project.track} · {project.focus}</span></div>
-            <div className="project-card__main"><p className="project-status">{project.status}</p><h3>{project.title}</h3><p className="project-description">{project.description}</p><p className="project-evidence">{project.evidence}</p><button type="button" className="project-detail-trigger" onClick={() => setSelectedProject(project)}>Open case note <ArrowUpRight size={14} aria-hidden="true" /></button></div>
+            <div className="project-card__main"><p className="project-status">{project.status}</p><h3>{project.title}</h3><p className="project-description">{project.description}</p><p className="project-evidence">{project.evidence}</p>{getCaseStudy(project.id) ? <a className="project-detail-trigger" href={portfolioPath(`/work/${project.id}`)} onClick={() => trackPortfolioEvent("project_case_study_opened")}>Read full case study <ArrowUpRight size={14} aria-hidden="true" /></a> : <button type="button" className="project-detail-trigger" onClick={() => setSelectedProject(project)}>Open case note <ArrowUpRight size={14} aria-hidden="true" /></button>}</div>
             <div className="project-card__footer"><div className="project-tags">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>{project.href ? <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} source`}><ArrowUpRight size={19} /></a> : <span className="project-card__quiet-arrow" aria-hidden="true"><ArrowUpRight size={19} /></span>}</div>
           </article>
         ))}

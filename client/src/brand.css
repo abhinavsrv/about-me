@@ -6,6 +6,10 @@
 .brand-mark { width: 43px; height: 43px; filter: drop-shadow(0 0 11px rgba(169,214,255,.18)); }
 .brand-type { gap: 3px; font-size: 8px; letter-spacing: .16em; }
 .brand-type b { font-size: 10px; letter-spacing: .105em; }
+.desktop-nav a.nav-link--active { color: var(--cloud); }
+.desktop-nav a.nav-link--active::after { transform: scaleX(1); }
+.mobile-nav a[aria-current="page"] { color: var(--signal); }
+.desktop-nav a { display: inline-flex; align-items: baseline; gap: .35rem; }.desktop-nav a small { color: var(--mist); font-size: 7px; letter-spacing: .08em; text-transform: uppercase; }.desktop-nav a.nav-link--active small { color: var(--signal); }.mobile-nav a b { color: inherit; font-weight: 500; }.mobile-nav a small { display: block; margin-left: auto; color: var(--mist); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
 
 .work-section, .trajectory-section, .capabilities-section, .notes-section, .contact-section { position: relative; }
 .section-beam { position: absolute; z-index: 2; height: 1px; background: linear-gradient(90deg, transparent, var(--signal) 30%, var(--signal) 70%, transparent); box-shadow: 0 0 14px rgba(169,214,255,.48); opacity: .78; pointer-events: none; }
@@ -34,3 +38,5 @@
 
 @media (max-width: 840px) { .brand-lockup { min-width: 215px; }.brand-mark { width: 39px; height: 39px; } }
 @media (max-width: 650px) { .brand-lockup { min-width: auto; }.brand-type { font-size: 7px; }.brand-type b { font-size: 9px; }.work-beam { right: 6vw; top: 64px; width: 20vw; }.trajectory-beam { left: 6vw; bottom: 45px; width: 21vw; } }
+@media (max-width: 650px) { .work-filter button { min-height: 44px; padding: .55rem .75rem; font-size: 11px; }.project-detail-trigger, .inline-signal-link { min-height: 44px; align-items: center; }.project-card__topline, .project-status, .experience-ledger__item p { font-size: 12px; } }
+@media (max-width: 650px) { .desktop-nav a small { display: none; }.work-jump-nav { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1.4rem 0; }.work-jump-nav > span { width: 100%; color: var(--mist); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }.work-jump-nav button { min-height: 40px; padding: .45rem .65rem; border: 1px solid var(--hairline); background: rgba(169,214,255,.04); color: var(--cloud); font-size: 10px; }.work-jump-nav button:focus-visible { outline: 1px solid var(--signal); outline-offset: 2px; } }

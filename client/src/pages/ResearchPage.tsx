@@ -1,25 +1,22 @@
 import NotesSection from "@/components/NotesSection";
-import PortfolioPageHero from "@/components/PortfolioPageHero";
+import EvidencePageHero from "@/components/EvidencePageHero";
 import SiteShell from "@/components/SiteShell";
 import WorkSection from "@/components/WorkSection";
 import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
-
-const gardenPortrait = "/manus-storage/abhinav-suit-garden_2d523167.webp";
 
 export default function ResearchPage() {
   usePageMetadata(portfolioPageMetadata.research);
 
   return (
     <SiteShell>
-      <PortfolioPageHero
+      <EvidencePageHero
         index="01"
         eyebrow="Research atlas"
         title={<>Research that makes<br /><em>limits legible.</em></>}
         summary="A focused record of work across trustworthy AI, healthcare NLP, transformer behavior, financial systems, and the engineering choices that make evaluation usable."
-        image={gardenPortrait}
-        imageAlt="Abhinav Srivastava standing outdoors in a blue suit"
-        caption="Portrait study / research systems"
+        caption="Inference window / research systems"
         marks={<><span>Trustworthy AI</span><span>Healthcare NLP</span><span>Mechanistic interpretability</span></>}
+        signal="inference"
       />
 
       <section className="research-method-section" aria-labelledby="research-method-title">

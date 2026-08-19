@@ -6,6 +6,7 @@ import TrajectorySection from "@/components/TrajectorySection";
 import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
 
 const cafePortrait = "/manus-storage/abhinav-cafe-portrait_29960cc0.jpeg";
+const cafePortraitSmall = "/manus-storage/abhinav-cafe-portrait-640_38f08074.webp";
 
 export default function ProfilePage() {
   usePageMetadata(portfolioPageMetadata.profile);
@@ -18,7 +19,10 @@ export default function ProfilePage() {
         title={<>Inquiry, before<br /><strong>optimization.</strong></>}
         summary="An undergraduate research practice focused on making advanced systems more reliable, more interpretable, and more useful in consequential settings."
         image={cafePortrait}
+        imageSmall={cafePortraitSmall}
         imageAlt="Abhinav Srivastava seated at a café"
+        imageWidth={1240}
+        imageHeight={1226}
         caption="Portrait study / evidence-led practice"
         marks={<><span>Undergraduate researcher</span><span>Computer science</span><span>New Delhi, India</span></>}
       />

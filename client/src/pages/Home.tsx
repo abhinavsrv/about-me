@@ -3,14 +3,9 @@
  * cloud-white typography, signal-ice emphasis, and the supplied portrait treated as a singular editorial moment.
  */
 import SiteShell from "@/components/SiteShell";
-import CapabilitiesSection from "@/components/CapabilitiesSection";
-import NotesSection from "@/components/NotesSection";
-import ResumeSection from "@/components/ResumeSection";
-import ContactSection from "@/components/ContactSection";
-import TrajectorySection from "@/components/TrajectorySection";
-import WorkSection from "@/components/WorkSection";
-import AboutSection from "@/components/AboutSection";
+import HomeIndexSections from "@/components/HomeIndexSections";
 import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
+import { portfolioPath } from "@/lib/routes";
 import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { useEffect } from "react";
 
@@ -50,8 +45,8 @@ export default function Home() {
             interpretability, and robust evaluation matter as much as raw performance.
           </p>
           <div className="hero-actions" aria-label="Primary actions">
-            <a className="signal-button" href="#research">Examine research <ArrowDownRight size={17} aria-hidden="true" /></a>
-            <a className="quiet-button" href="mailto:heyabhinav.bit@gmail.com">Start a conversation <Mail size={15} aria-hidden="true" /></a>
+            <a className="signal-button" href={portfolioPath("/research")}>Open research atlas <ArrowDownRight size={17} aria-hidden="true" /></a>
+            <a className="quiet-button" href={portfolioPath("/contact")}>Start a conversation <Mail size={15} aria-hidden="true" /></a>
           </div>
         </div>
 
@@ -61,7 +56,7 @@ export default function Home() {
             <span>2026</span>
           </div>
           <div className="hero-portrait-frame">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/QrDQxLNtAPftnhMd.webp" alt="Abhinav Srivastava seated by a window in a sunlit setting" />
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/QrDQxLNtAPftnhMd.webp" srcSet="/manus-storage/abhinav-window-seated-640_f88b9a16.webp 640w, https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/QrDQxLNtAPftnhMd.webp 768w" sizes="(max-width: 760px) 88vw, 43vw" alt="Abhinav Srivastava seated by a window in a sunlit setting" width="768" height="1024" fetchPriority="high" decoding="async" />
             <div className="portrait-vignette" aria-hidden="true" />
             <span className="portrait-signal" aria-hidden="true" />
           </div>
@@ -84,8 +79,8 @@ export default function Home() {
         </aside>
 
         <div className="hero-bottomline">
-          <span>Scroll to enter the work</span>
-          <a href="#research" aria-label="Scroll to research"><ArrowDownRight size={20} aria-hidden="true" /></a>
+          <span>Open the research atlas</span>
+          <a href={portfolioPath("/research")} aria-label="Open research atlas"><ArrowDownRight size={20} aria-hidden="true" /></a>
           <div className="hero-socials" aria-label="External profile links">
             <a href="https://github.com/abhinavsrv" target="_blank" rel="noreferrer" aria-label="Open Abhinav’s GitHub"><Github size={17} /></a>
             <a href="https://www.linkedin.com/in/navnotexist/" target="_blank" rel="noreferrer" aria-label="Open Abhinav’s LinkedIn"><Linkedin size={17} /></a>
@@ -94,42 +89,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="research" className="research-section" aria-labelledby="research-title">
-        <div className="section-index" aria-hidden="true"><span>01</span><i /></div>
-        <div className="research-intro">
-          <p className="eyebrow">Research orientation</p>
-          <h2 id="research-title">Model behavior<br />is the <em>product.</em></h2>
-        </div>
-        <div className="research-statement">
-          <p>
-            My work asks how transformer systems should behave when their inputs are incomplete, their classes are imbalanced,
-            and the cost of a wrong answer is not evenly distributed. I am especially interested in calibration, representation
-            behavior, and evaluation practices that make the limits of a model visible.
-          </p>
-          <a className="inline-signal-link" href="#work">Explore selected work <ArrowDownRight size={16} aria-hidden="true" /></a>
-        </div>
-        <div className="research-themes">
-          {[
-            ["01", "Trustworthy AI", "Calibration-aware inference and reliability under uncertainty."],
-            ["02", "Healthcare AI", "High-stakes language and imaging systems where errors require context."],
-            ["03", "Transformer reasoning", "Representation behavior, mechanism, and evidence-led analysis."],
-          ].map(([index, title, copy]) => (
-            <article key={title} className="research-theme">
-              <span>{index}</span>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <AboutSection />
-      <WorkSection />
-      <TrajectorySection />
-      <CapabilitiesSection />
-      <NotesSection />
-      <ResumeSection />
-      <ContactSection />
+      <HomeIndexSections />
     </SiteShell>
   );
 }

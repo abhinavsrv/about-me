@@ -5,17 +5,21 @@ import { Menu, X } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { portfolioPath } from "@/lib/routes";
+import { trackPortfolioEvent } from "@/lib/portfolioAnalytics";
+import { useLocation } from "wouter";
 
 const navigation = [
-  ["Research", portfolioPath("/research")],
-  ["Work", portfolioPath("/#work")],
-  ["Profile", portfolioPath("/profile")],
-  ["Contact", portfolioPath("/contact")],
+  { label: "Research", href: portfolioPath("/research"), match: "/research", destination: "Route" },
+  { label: "Case studies", href: portfolioPath("/research#work"), match: "/work", destination: "Route + atlas" },
+  { label: "Outputs", href: portfolioPath("/outputs"), match: "/outputs", destination: "Route" },
+  { label: "Profile", href: portfolioPath("/profile"), match: "/profile", destination: "Route" },
+  { label: "Contact", href: portfolioPath("/contact"), match: "/contact", destination: "Route" },
 ] as const;
 
 export default function SiteShell({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [location] = useLocation();
   const { data: settings } = trpc.portfolio.settings.useQuery(undefined, { retry: false, staleTime: 30_000 });
   const identityValue = settings?.find((setting) => setting.settingKey === "profile_identity")?.value as { name?: string } | undefined;
   const displayName = identityValue?.name?.toUpperCase() ?? "ABHINAV SRIVASTAVA";
@@ -43,6 +47,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const isActive = (match: string) => match === "/work" ? location.startsWith("/work/") : location === match;
 
   return (
     <div className="site-root">
@@ -61,10 +66,10 @@ export default function SiteShell({ children }: { children: ReactNode }) {
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {navigation.map(([label, href]) => (
-            <a key={href} href={href}>{label}</a>
+          {navigation.map((item) => (
+            <a key={item.href} href={item.href} className={isActive(item.match) ? "nav-link--active" : undefined} aria-current={isActive(item.match) ? "page" : undefined} aria-label={`${item.label} — ${item.destination.toLowerCase()}`} onClick={() => { if (item.match === "/research") trackPortfolioEvent("research_atlas_opened"); }}><span>{item.label}</span><small>{item.destination}</small></a>
           ))}
-          <a className="nav-github" href="https://github.com/abhinavsrv" target="_blank" rel="noreferrer">
+          <a className="nav-github" href="https://github.com/abhinavsrv" target="_blank" rel="noreferrer" onClick={() => trackPortfolioEvent("github_opened")}>
             View GitHub <span aria-hidden="true">↗</span>
           </a>
         </nav>
@@ -82,15 +87,15 @@ export default function SiteShell({ children }: { children: ReactNode }) {
         </button>
       </header>
 
-      <div id="mobile-navigation" className={`mobile-nav ${menuOpen ? "mobile-nav--open" : ""}`} aria-hidden={!menuOpen}>
+      <div id="mobile-navigation" className={`mobile-nav ${menuOpen ? "mobile-nav--open" : ""}`} role="dialog" aria-modal={menuOpen} aria-label="Portfolio navigation" aria-hidden={!menuOpen}>
         <div className="mobile-nav__inner">
           <span className="eyebrow">Navigate</span>
-          {navigation.map(([label, href], index) => (
-            <a key={href} href={href} onClick={closeMenu} style={{ transitionDelay: `${60 + index * 45}ms` }}>
-              <span>{String(index + 1).padStart(2, "0")}</span>{label}
+          {navigation.map((item, index) => (
+            <a key={item.href} href={item.href} onClick={() => { if (item.match === "/research") trackPortfolioEvent("research_atlas_opened"); closeMenu(); }} tabIndex={menuOpen ? 0 : -1} aria-current={isActive(item.match) ? "page" : undefined} style={{ transitionDelay: `${60 + index * 45}ms` }}>
+              <span>{String(index + 1).padStart(2, "0")}</span><b>{item.label}</b><small>{item.destination}</small>
             </a>
           ))}
-          <a className="mobile-nav__external" href="https://github.com/abhinavsrv" target="_blank" rel="noreferrer" onClick={closeMenu}>
+          <a className="mobile-nav__external" href="https://github.com/abhinavsrv" target="_blank" rel="noreferrer" onClick={() => { trackPortfolioEvent("github_opened"); closeMenu(); }} tabIndex={menuOpen ? 0 : -1}>
             github.com/abhinavsrv ↗
           </a>
         </div>
