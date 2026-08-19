@@ -15,6 +15,11 @@
 .capability-beam { left: 0; bottom: 21%; width: 75%; }
 .capability-ledger-beam { left: 8vw; top: 74px; width: 11vw; }
 
+/* Keep the research-practice copy readable even when adjacent visual layers animate. */
+.capabilities-section { isolation: isolate; overflow: clip; }
+.capabilities-section > :not(.section-beam) { position: relative; z-index: 2; }
+.capabilities-section > .section-beam { z-index: 1; }
+
 .notes-art::before { position: absolute; z-index: 1; content: ""; inset: 12% 10%; background-image: linear-gradient(90deg, rgba(169,214,255,.2) 1px, transparent 1px), linear-gradient(rgba(169,214,255,.16) 1px, transparent 1px); background-size: 34px 34px; mask-image: linear-gradient(90deg, #000, transparent); opacity: .6; }
 .notes-art::after { z-index: 2; }
 .notes-content::before { position: absolute; content: ""; width: min(16vw, 210px); height: 1px; margin-top: -36px; background: linear-gradient(90deg, var(--signal), transparent); box-shadow: 0 0 12px rgba(169,214,255,.45); }

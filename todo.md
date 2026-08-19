@@ -18,3 +18,5 @@
 - [x] Document the LinkedIn sections that remained truncated or unavailable and exclude unverified material from the content reconciliation.
 - [x] Add a verified publications model and interface, or explicitly record that no approved publications are currently available.
 - [x] Connect trajectory, capabilities, and public profile settings to persistent database records in addition to the work explorer.
+
+- [x] Prevent the Capabilities section supporting visual from overlapping or obscuring its research-practice text at every responsive breakpoint.
