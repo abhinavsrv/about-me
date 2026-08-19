@@ -1,0 +1,13 @@
+/* Obsidian Precision explorer: compact technical controls, readable result count, and no visual-only filtering state. */
+.work-section__controls { max-width: 470px; }
+.work-filter-group { margin-top: 1.15rem; }
+.work-filter-group > span { color: var(--signal); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+.work-filter { margin-top: .6rem; }
+.work-filter button { transition: color 150ms var(--ease-out), border-color 150ms var(--ease-out), background-color 150ms var(--ease-out), transform 150ms var(--ease-out); }
+.work-filter button:hover, .work-filter button:focus-visible { transform: translateY(-1px); }
+.work-filter-result { margin: 1.65rem 0 -2rem; color: var(--mist); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+.work-filter-result span { margin-left: .65rem; color: var(--signal); }
+.trajectory-list__source, .experience-ledger__title span { color: var(--signal); font-size: 9px; font-weight: 400; letter-spacing: .11em; text-transform: uppercase; }
+.trajectory-list__source { display: block; margin: 0 0 1rem; }
+.experience-ledger__title span { margin-left: .55rem; }
+@media (max-width: 760px) { .work-filter-result { margin: 1.2rem 0 -1rem; }.work-filter { gap: .35rem; }.work-filter button { font-size: 8px; padding: .46rem .55rem; } }

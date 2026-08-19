@@ -1,0 +1,16 @@
+/* Obsidian Precision About section: an editorial portrait pause with a documented research-publication boundary. */
+.about-section { position: relative; display: grid; grid-template-columns: minmax(240px, .72fr) minmax(0, 1.08fr); gap: clamp(2.3rem, 7vw, 8rem); padding: clamp(92px, 13vw, 172px) 8vw; border-top: 1px solid var(--hairline); background: linear-gradient(112deg, #070809, #101419 52%, #08090a); }
+.about-section .section-index { position: absolute; top: clamp(2.1rem, 4.5vw, 4.5rem); left: 8vw; }
+.about-portrait-wrap { position: relative; align-self: end; overflow: hidden; min-height: 430px; border: 1px solid rgba(255,255,255,.13); background: #111; }
+.about-portrait-wrap::after { position: absolute; inset: 0; content: ""; background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,.78)); pointer-events: none; }
+.about-portrait-wrap img { display: block; width: 100%; height: 100%; min-height: 430px; object-fit: cover; object-position: 39% 42%; filter: grayscale(.2) contrast(1.04) brightness(.73); }
+.about-portrait-wrap p { position: absolute; z-index: 2; right: 1rem; bottom: 1rem; left: 1rem; margin: 0; color: var(--cloud); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+.about-portrait-beam { position: absolute; z-index: 2; top: 12%; right: -18%; width: 76%; height: 1px; background: var(--signal); box-shadow: 0 0 22px rgba(169,214,255,.75); transform: rotate(-24deg); }
+.about-copy { max-width: 680px; padding-top: clamp(2.5rem, 8vw, 8rem); }
+.about-copy h2 { margin: .9rem 0 2rem; font-family: "DM Sans", sans-serif; font-size: clamp(2.75rem, 5vw, 6rem); font-weight: 500; letter-spacing: -.045em; line-height: .93; }
+.about-copy h2 em { color: var(--signal); font-style: normal; }
+.about-copy > p { max-width: 620px; margin: 0 0 1.15rem; color: var(--mist); font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.72; }
+.publication-status { margin-top: 2.3rem; padding: 1.2rem 1.25rem; border: 1px solid var(--hairline); background: rgba(169,214,255,.035); box-shadow: inset 2px 0 var(--signal); }
+.publication-status span { color: var(--signal); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+.publication-status p { margin: .65rem 0 0; color: var(--cloud); font-size: 12px; line-height: 1.58; }
+@media (max-width: 760px) { .about-section { grid-template-columns: 1fr; padding: 88px 6vw; }.about-section .section-index { left: 6vw; }.about-portrait-wrap, .about-portrait-wrap img { min-height: 360px; }.about-copy { padding-top: 0; }.about-copy h2 { font-size: clamp(2.75rem, 12vw, 4.5rem); letter-spacing: -.04em; } }

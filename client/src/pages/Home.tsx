@@ -9,9 +9,25 @@ import ResumeSection from "@/components/ResumeSection";
 import ContactSection from "@/components/ContactSection";
 import TrajectorySection from "@/components/TrajectorySection";
 import WorkSection from "@/components/WorkSection";
+import AboutSection from "@/components/AboutSection";
 import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section"));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      sections.forEach((section) => section.classList.add("is-revealed"));
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("is-revealed"); observer.unobserve(entry.target); } }),
+      { threshold: 0.1, rootMargin: "0px 0px -8%" },
+    );
+    sections.forEach((section) => { section.classList.add("scroll-reveal"); observer.observe(section); });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <SiteShell>
       <section id="top" className="hero-section" aria-labelledby="hero-title">
@@ -104,6 +120,7 @@ export default function Home() {
         </div>
       </section>
 
+      <AboutSection />
       <WorkSection />
       <TrajectorySection />
       <CapabilitiesSection />

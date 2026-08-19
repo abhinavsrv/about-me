@@ -3,6 +3,7 @@
  */
 import { Menu, X } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
+import { trpc } from "@/lib/trpc";
 
 const navigation = [
   ["Research", "#research"],
@@ -15,6 +16,9 @@ const navigation = [
 export default function SiteShell({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { data: settings } = trpc.portfolio.settings.useQuery(undefined, { retry: false, staleTime: 30_000 });
+  const identityValue = settings?.find((setting) => setting.settingKey === "profile_identity")?.value as { name?: string } | undefined;
+  const displayName = identityValue?.name?.toUpperCase() ?? "ABHINAV SRIVASTAVA";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -51,7 +55,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
             alt=""
           />
           <span className="brand-type">
-            <b>ABHINAV SRIVASTAVA</b>
+            <b>{displayName}</b>
             <span>RESEARCH SYSTEMS</span>
           </span>
         </a>
