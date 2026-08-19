@@ -20,3 +20,9 @@
 - [x] Connect trajectory, capabilities, and public profile settings to persistent database records in addition to the work explorer.
 
 - [x] Prevent the Capabilities section supporting visual from overlapping or obscuring its research-practice text at every responsive breakpoint.
+
+- [x] Upload and integrate the three newly supplied portraits as durable editorial assets without obscuring readable content.
+- [x] Add dedicated Research, Profile, and Contact routes that preserve the portfolio’s dark luxury visual system and GitHub Pages fallback.
+- [x] Extend site navigation, metadata, responsive layouts, and route fallbacks for the new portfolio pages.
+- [x] Add route-aware title and description metadata for the Research, Profile, and Contact pages, then verify it in the static build.
+- [x] Restore homepage title and description metadata after navigating back from a routed editorial page.

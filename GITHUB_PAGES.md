@@ -4,7 +4,9 @@ The repository includes a GitHub Actions workflow for a project-site deployment.
 
 For a root user or organization site named `<owner>.github.io`, replace the workflow value `/${{ github.event.repository.name }}/` with `/` before the first deployment.
 
-The public interface uses anchor navigation rather than server routes, so it does not require a server rewrite rule on GitHub Pages.
+The public interface now combines homepage anchors with routed Research, Profile, and Contact pages. `client/public/404.html` restores a requested client-side route before the application initializes, so direct links such as `/research` continue to work on GitHub Pages without a server rewrite rule. Keep this file in the Pages build whenever routes are added.
+
+The three routed pages also set their own document title and description after client initialization. The static `index.html` metadata remains the fallback for the homepage and for clients that do not execute JavaScript.
 
 ## Persistent content and the Pages fallback
 

@@ -10,10 +10,13 @@ import ContactSection from "@/components/ContactSection";
 import TrajectorySection from "@/components/TrajectorySection";
 import WorkSection from "@/components/WorkSection";
 import AboutSection from "@/components/AboutSection";
+import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
 import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { useEffect } from "react";
 
 export default function Home() {
+  usePageMetadata(portfolioPageMetadata.home);
+
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section"));
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

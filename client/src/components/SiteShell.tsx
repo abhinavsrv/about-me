@@ -4,13 +4,13 @@
 import { Menu, X } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import { trpc } from "@/lib/trpc";
+import { portfolioPath } from "@/lib/routes";
 
 const navigation = [
-  ["Research", "#research"],
-  ["Work", "#work"],
-  ["Trajectory", "#trajectory"],
-  ["Capabilities", "#capabilities"],
-  ["Contact", "#contact"],
+  ["Research", portfolioPath("/research")],
+  ["Work", portfolioPath("/#work")],
+  ["Profile", portfolioPath("/profile")],
+  ["Contact", portfolioPath("/contact")],
 ] as const;
 
 export default function SiteShell({ children }: { children: ReactNode }) {
@@ -48,7 +48,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
     <div className="site-root">
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
-        <a className="brand-lockup" href="#top" aria-label="Abhinav Srivastava — homepage">
+        <a className="brand-lockup" href={portfolioPath("/")} aria-label="Abhinav Srivastava — homepage">
           <img
             className="brand-mark"
             src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/TelKRBPxxVkBYlyC.png"

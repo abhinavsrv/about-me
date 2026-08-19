@@ -6,7 +6,13 @@ import { createRoot } from "react-dom/client";
 import superjson from "superjson";
 import App from "./App";
 import { startLogin } from "./const";
+import { portfolioPath } from "./lib/routes";
 import "./index.css";
+
+const redirectedPath = new URLSearchParams(window.location.search).get("p");
+if (redirectedPath?.startsWith("/") && !redirectedPath.startsWith("//")) {
+  window.history.replaceState(null, "", `${portfolioPath(redirectedPath)}${window.location.hash}`);
+}
 
 const queryClient = new QueryClient();
 
