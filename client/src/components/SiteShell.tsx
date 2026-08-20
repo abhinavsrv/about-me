@@ -1,12 +1,13 @@
 /**
  * Obsidian Precision style reminder: navigation is dark, precise, and quiet; avoid generic rounded UI.
  */
-import { Menu, X } from "lucide-react";
+import { Menu, Volume2, X } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { portfolioPath } from "@/lib/routes";
 import { trackPortfolioEvent } from "@/lib/portfolioAnalytics";
 import { cinematicIntroSkipAction, CINEMATIC_INTRO_STORAGE_KEY, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro, type CinematicIntroPhase } from "@/lib/cinematicIntro";
+import { playCinematicSignalCue } from "@/lib/cinematicSound";
 import { useLocation } from "wouter";
 
 const navigation = [
@@ -27,6 +28,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     return shouldPlayCinematicIntro(location, prefersReducedMotion, hasSeenIntro) ? "play" : "off";
   });
+  const [introSoundEnabled, setIntroSoundEnabled] = useState(false);
   const { data: settings } = trpc.portfolio.settings.useQuery(undefined, { retry: false, staleTime: 30_000 });
   const identityValue = settings?.find((setting) => setting.settingKey === "profile_identity")?.value as { name?: string } | undefined;
   const displayName = identityValue?.name?.toUpperCase() ?? "ABHINAV SRIVASTAVA";
@@ -93,6 +95,9 @@ export default function SiteShell({ children }: { children: ReactNode }) {
     if (skip.shouldMarkSeen) window.sessionStorage.setItem(CINEMATIC_INTRO_STORAGE_KEY, "seen");
     setIntroPhase(skip.nextPhase);
   };
+  const enableIntroSound = () => {
+    if (playCinematicSignalCue()) setIntroSoundEnabled(true);
+  };
   const isActive = (match: string) => match === "/work" ? location.startsWith("/work/") : location === match;
 
   return (
@@ -107,7 +112,10 @@ export default function SiteShell({ children }: { children: ReactNode }) {
             <div><b>ABHINAV SRIVASTAVA</b><span>RESEARCH SYSTEMS</span></div>
           </div>
           <p className="cinematic-intro__readout" aria-hidden="true">SIGNAL / CALIBRATED</p>
-          <button className="cinematic-intro__skip" type="button" onClick={dismissIntro} autoFocus>Skip intro <span aria-hidden="true">↗</span></button>
+          <div className="cinematic-intro__controls">
+            <button className={`cinematic-intro__sound ${introSoundEnabled ? "cinematic-intro__sound--enabled" : ""}`} type="button" onClick={enableIntroSound} aria-pressed={introSoundEnabled}><Volume2 size={13} aria-hidden="true" />{introSoundEnabled ? "Sound enabled" : "Enable sound"}</button>
+            <button className="cinematic-intro__skip" type="button" onClick={dismissIntro} autoFocus>Skip intro <span aria-hidden="true">↗</span></button>
+          </div>
         </div>
       )}
       <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>

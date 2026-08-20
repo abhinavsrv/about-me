@@ -58,3 +58,6 @@
 - [x] Add automated coverage for the cinematic intro skip completion behavior.
 - [x] Keep page scrolling locked through the cinematic exit motion, then restore it only after the overlay reaches its off state.
 - [x] Exercise the shared skip-state logic used by the SiteShell, including session marking and scroll-lock completion semantics.
+
+- [x] Add an optional, muted-by-default ambient sound cue to the cinematic intro with a visible control and no autoplay.
+- [x] Document the exact GitHub Pages hosting steps, workflow checks, and required repository settings for this portfolio.
