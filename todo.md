@@ -66,5 +66,6 @@
 - [x] Refine the cinematic sound-control button into a premium Apple-like control with clear enabled state and accessible labeling.
 - [x] Add a persistent replay-intro control that restarts the cinematic sequence safely without blocking navigation.
 - [x] Validate the completed motion-and-control update with no build, type, or test errors before checkpointing and publishing.
-- [ ] Save a new checkpoint for the post-intro reveal, premium sound-control, and replay-intro revision.
+- [x] Save a new checkpoint for the post-intro reveal, premium sound-control, and replay-intro revision.
 - [ ] Publish the latest validated revision and verify the live portfolio updates without errors.
+- [ ] Trigger a fresh auto-published checkpoint for the latest replay revision and verify the deployed controls in a rendered production page.
