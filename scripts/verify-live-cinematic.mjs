@@ -2,6 +2,7 @@ import { spawn } from "node:child_process";
 import { rm } from "node:fs/promises";
 
 const productionUrl = process.argv[2] || "https://folio2027-cudcewte.manus.space/";
+const verificationMode = process.argv[3] || "hold";
 const port = 9333;
 const profilePath = "/tmp/folio-live-cinematic-profile";
 
@@ -69,12 +70,14 @@ async function main() {
     await command("Page.enable");
     await command("Runtime.enable");
     await command("Log.enable");
-    await command("Page.addScriptToEvaluateOnNewDocument", {
-      source: `(() => {
-        const nativeSetTimeout = window.setTimeout.bind(window);
-        window.setTimeout = (callback, delay, ...args) => nativeSetTimeout(callback, Number(delay) >= 1500 ? 60000 : delay, ...args);
-      })();`,
-    });
+    if (verificationMode === "hold") {
+      await command("Page.addScriptToEvaluateOnNewDocument", {
+        source: `(() => {
+          const nativeSetTimeout = window.setTimeout.bind(window);
+          window.setTimeout = (callback, delay, ...args) => nativeSetTimeout(callback, Number(delay) >= 1500 ? 60000 : delay, ...args);
+        })();`,
+      });
+    }
     await command("Emulation.setEmulatedMedia", {
       media: "",
       features: [{ name: "prefers-reduced-motion", value: "no-preference" }],
@@ -83,12 +86,15 @@ async function main() {
 
     for (let attempt = 0; attempt < 100; attempt += 1) {
       const { result } = await command("Runtime.evaluate", {
-        expression: "document.readyState === 'complete' && Boolean(document.querySelector('.cinematic-intro'))",
+        expression: verificationMode === "hold"
+          ? "document.readyState === 'complete' && Boolean(document.querySelector('.cinematic-intro'))"
+          : "document.readyState === 'complete' && (document.getElementById('root')?.textContent?.length || 0) > 0",
         returnByValue: true,
       });
       if (result.value) break;
       await sleep(75);
     }
+    if (verificationMode === "post") await sleep(2400);
 
     const { result } = await command("Runtime.evaluate", {
       expression: `JSON.stringify({
@@ -106,7 +112,10 @@ async function main() {
     });
     const checks = JSON.parse(result.value);
     console.log(JSON.stringify(checks));
-    if (!checks.intro || !checks.sound || !checks.skip || !checks.replay) process.exitCode = 1;
+    const valid = verificationMode === "hold"
+      ? checks.intro && checks.sound && checks.skip && checks.replay
+      : !checks.intro && checks.replay && checks.rootLength > 0 && checks.browserErrors.length === 0;
+    if (!valid) process.exitCode = 1;
     socket.close();
   } finally {
     browser.kill("SIGTERM");

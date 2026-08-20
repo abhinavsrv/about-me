@@ -67,8 +67,9 @@
 - [x] Add a persistent replay-intro control that restarts the cinematic sequence safely without blocking navigation.
 - [x] Validate the completed motion-and-control update with no build, type, or test errors before checkpointing and publishing.
 - [x] Save a new checkpoint for the post-intro reveal, premium sound-control, and replay-intro revision.
-- [ ] Publish the latest validated revision and verify the live portfolio updates without errors.
-- [ ] Trigger a fresh auto-published checkpoint for the latest replay revision and verify the deployed controls in a rendered production page.
-- [ ] Confirm the live production DOM exposes the intro sound control during its opening sequence and the replay control after completion.
+- [x] Publish the latest validated revision and verify the live portfolio updates without errors.
+- [x] Trigger a fresh auto-published checkpoint for the latest replay revision and verify the deployed controls in a rendered production page.
+- [x] Confirm the live production DOM exposes the intro sound control during its opening sequence and the replay control after completion.
+- [x] Verify on the final deployed revision that the replay control remains present after the intro completes normally with no runtime errors.
 
-- [ ] Correct the production bundle chunking issue that prevents the live React application from mounting, then republish and verify the rendered controls.
+- [x] Correct the production bundle chunking issue that prevents the live React application from mounting, then republish and verify the rendered controls.
