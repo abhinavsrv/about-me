@@ -6,6 +6,7 @@ import { type ReactNode, useEffect, useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { portfolioPath } from "@/lib/routes";
 import { trackPortfolioEvent } from "@/lib/portfolioAnalytics";
+import { cinematicIntroSkipAction, CINEMATIC_INTRO_STORAGE_KEY, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro, type CinematicIntroPhase } from "@/lib/cinematicIntro";
 import { useLocation } from "wouter";
 
 const navigation = [
@@ -20,6 +21,12 @@ export default function SiteShell({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
+  const [introPhase, setIntroPhase] = useState<CinematicIntroPhase>(() => {
+    if (typeof window === "undefined") return "off";
+    const hasSeenIntro = window.sessionStorage.getItem(CINEMATIC_INTRO_STORAGE_KEY) === "seen";
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    return shouldPlayCinematicIntro(location, prefersReducedMotion, hasSeenIntro) ? "play" : "off";
+  });
   const { data: settings } = trpc.portfolio.settings.useQuery(undefined, { retry: false, staleTime: 30_000 });
   const identityValue = settings?.find((setting) => setting.settingKey === "profile_identity")?.value as { name?: string } | undefined;
   const displayName = identityValue?.name?.toUpperCase() ?? "ABHINAV SRIVASTAVA";
@@ -40,11 +47,23 @@ export default function SiteShell({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.style.overflow = menuOpen || introLocksScroll(introPhase) ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [menuOpen]);
+  }, [menuOpen, introPhase]);
+
+  useEffect(() => {
+    if (introPhase === "off") return;
+    const delay = introPhase === "play" ? 1550 : 410;
+    const closeTimer = window.setTimeout(() => {
+      window.sessionStorage.setItem(CINEMATIC_INTRO_STORAGE_KEY, "seen");
+      setIntroPhase((phase) => nextCinematicIntroPhase(phase));
+    }, delay);
+    return () => {
+      window.clearTimeout(closeTimer);
+    };
+  }, [introPhase]);
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll<HTMLElement>("main section"));
@@ -69,11 +88,28 @@ export default function SiteShell({ children }: { children: ReactNode }) {
   }, [location]);
 
   const closeMenu = () => setMenuOpen(false);
+  const dismissIntro = () => {
+    const skip = cinematicIntroSkipAction();
+    if (skip.shouldMarkSeen) window.sessionStorage.setItem(CINEMATIC_INTRO_STORAGE_KEY, "seen");
+    setIntroPhase(skip.nextPhase);
+  };
   const isActive = (match: string) => match === "/work" ? location.startsWith("/work/") : location === match;
 
   return (
     <div className="site-root">
       <a className="skip-link" href="#main-content">Skip to content</a>
+      {introPhase !== "off" && (
+        <div className={`cinematic-intro cinematic-intro--${introPhase}`} role="status" aria-live="polite" aria-label="Opening portfolio sequence">
+          <div className="cinematic-intro__grid" aria-hidden="true" />
+          <div className="cinematic-intro__signal" aria-hidden="true"><span /><i /></div>
+          <div className="cinematic-intro__identity" aria-hidden="true">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/TelKRBPxxVkBYlyC.png" alt="" />
+            <div><b>ABHINAV SRIVASTAVA</b><span>RESEARCH SYSTEMS</span></div>
+          </div>
+          <p className="cinematic-intro__readout" aria-hidden="true">SIGNAL / CALIBRATED</p>
+          <button className="cinematic-intro__skip" type="button" onClick={dismissIntro} autoFocus>Skip intro <span aria-hidden="true">↗</span></button>
+        </div>
+      )}
       <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
         <a className="brand-lockup" href={portfolioPath("/")} aria-label="Abhinav Srivastava — homepage">
           <img

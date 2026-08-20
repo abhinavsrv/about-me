@@ -51,3 +51,10 @@
 
 - [x] Restore a true pure-black background while keeping content panels, portrait framing, and readable text clearly separated.
 - [x] Add Apple-style motion: eased scroll reveals, refined section entrances, and tactile hover/press feedback with reduced-motion support.
+
+- [x] Add a short signal-led cinematic portfolio intro sequence with an immediate skip path and reduced-motion-safe fallback.
+- [x] Prevent closed mobile navigation content from leaking into the desktop viewport.
+- [x] Ensure skipping the cinematic intro fully dismisses the overlay and restores page scrolling after its exit motion.
+- [x] Add automated coverage for the cinematic intro skip completion behavior.
+- [x] Keep page scrolling locked through the cinematic exit motion, then restore it only after the overlay reaches its off state.
+- [x] Exercise the shared skip-state logic used by the SiteShell, including session marking and scroll-lock completion semantics.
