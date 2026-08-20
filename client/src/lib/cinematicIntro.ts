@@ -17,3 +17,11 @@ export function introLocksScroll(phase: CinematicIntroPhase) {
 export function cinematicIntroSkipAction() {
   return { nextPhase: "exit" as const, shouldMarkSeen: true };
 }
+
+export function cinematicIntroReplayAction() {
+  return { nextPhase: "play" as const, shouldClearSeen: true };
+}
+
+export function shouldRevealMainContent(phase: CinematicIntroPhase) {
+  return phase === "off";
+}

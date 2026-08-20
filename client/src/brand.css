@@ -8,8 +8,10 @@
 .brand-type b { font-size: 10px; letter-spacing: .105em; }
 .desktop-nav a.nav-link--active { color: var(--cloud); }
 .desktop-nav a.nav-link--active::after { transform: scaleX(1); }
+.nav-replay { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem .7rem; border: 1px solid rgba(169,214,255,.25); border-radius: 999px; background: linear-gradient(135deg, rgba(169,214,255,.12), rgba(255,255,255,.03)); color: var(--cloud); font: inherit; font-size: 10px; letter-spacing: .06em; cursor: pointer; transition: transform 180ms var(--ease-out), border-color 180ms var(--ease-out), color 180ms var(--ease-out); }.nav-replay:hover, .nav-replay:focus-visible { transform: translateY(-2px); border-color: var(--signal); color: var(--signal); }.nav-replay:active { transform: scale(.97); }
 .mobile-nav a[aria-current="page"] { color: var(--signal); }
 .desktop-nav a { display: inline-flex; align-items: baseline; gap: .35rem; }.desktop-nav a small { color: var(--mist); font-size: 7px; letter-spacing: .08em; text-transform: uppercase; }.desktop-nav a.nav-link--active small { color: var(--signal); }.mobile-nav a b { color: inherit; font-weight: 500; }.mobile-nav a small { display: block; margin-left: auto; color: var(--mist); font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
+.mobile-nav__replay { display: inline-flex; align-items: center; gap: .65rem; margin-top: 1.25rem; border: 0; background: transparent; color: var(--signal); font: inherit; font-size: 14px; letter-spacing: .06em; text-align: left; cursor: pointer; }
 
 .work-section, .trajectory-section, .capabilities-section, .notes-section, .contact-section { position: relative; }
 .section-beam { position: absolute; z-index: 2; height: 1px; background: linear-gradient(90deg, transparent, var(--signal) 30%, var(--signal) 70%, transparent); box-shadow: 0 0 14px rgba(169,214,255,.48); opacity: .78; pointer-events: none; }

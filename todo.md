@@ -61,3 +61,10 @@
 
 - [x] Add an optional, muted-by-default ambient sound cue to the cinematic intro with a visible control and no autoplay.
 - [x] Document the exact GitHub Pages hosting steps, workflow checks, and required repository settings for this portfolio.
+
+- [x] Start main-content section reveals only after the cinematic intro fully completes, with a reduced-motion-safe fallback.
+- [x] Refine the cinematic sound-control button into a premium Apple-like control with clear enabled state and accessible labeling.
+- [x] Add a persistent replay-intro control that restarts the cinematic sequence safely without blocking navigation.
+- [x] Validate the completed motion-and-control update with no build, type, or test errors before checkpointing and publishing.
+- [ ] Save a new checkpoint for the post-intro reveal, premium sound-control, and replay-intro revision.
+- [ ] Publish the latest validated revision and verify the live portfolio updates without errors.

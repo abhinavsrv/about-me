@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cinematicIntroSkipAction, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro } from "./cinematicIntro";
+import { cinematicIntroReplayAction, cinematicIntroSkipAction, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro, shouldRevealMainContent } from "./cinematicIntro";
 
 describe("shouldPlayCinematicIntro", () => {
   it("plays only on the homepage for a visitor who has not seen it this session", () => {
@@ -23,5 +23,12 @@ describe("shouldPlayCinematicIntro", () => {
     expect(introLocksScroll(skip.nextPhase)).toBe(true);
     expect(nextCinematicIntroPhase(skip.nextPhase)).toBe("off");
     expect(introLocksScroll("off")).toBe(false);
+  });
+
+  it("replays the intro on demand and only reveals main content when the sequence is off", () => {
+    expect(cinematicIntroReplayAction()).toEqual({ nextPhase: "play", shouldClearSeen: true });
+    expect(shouldRevealMainContent("play")).toBe(false);
+    expect(shouldRevealMainContent("exit")).toBe(false);
+    expect(shouldRevealMainContent("off")).toBe(true);
   });
 });
