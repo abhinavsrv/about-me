@@ -20,7 +20,7 @@ export default function HomeIndexSections() {
       <section id="work" className="home-featured-work" aria-labelledby="featured-work-title">
         <div className="home-featured-work__head"><div><p className="eyebrow">Selected case studies</p><h2 id="featured-work-title">Three records.<br /><em>Clear boundaries.</em></h2></div><p>Start with the strongest evidence-led records, then use the research atlas to explore the full index by track and focus.</p></div>
         <div className="home-featured-work__grid">
-          {featuredStudies.map((study) => <article key={study.slug}><div><span>{study.number} / {study.eyebrow}</span><p>{study.status}</p></div><h3>{study.title}</h3><p>{study.lede}</p><a href={portfolioPath(`/work/${study.slug}`)} onClick={() => trackPortfolioEvent("project_case_study_opened")}>Read case study <ArrowUpRight size={16} aria-hidden="true" /></a></article>)}
+          {featuredStudies.map((study) => <article key={study.slug}><div><span>{study.number} / {study.eyebrow}</span><p>{study.status}</p></div><h3>{study.title}</h3><p>{study.lede}</p><a href={portfolioPath(study.slug === "mental-roberta" ? "/research/mental-roberta" : `/work/${study.slug}`)} onClick={() => trackPortfolioEvent("project_case_study_opened")}>{study.slug === "mental-roberta" ? "Open research journal" : "Read case study"} <ArrowUpRight size={16} aria-hidden="true" /></a></article>)}
         </div>
         <a className="home-featured-work__all" href={portfolioPath("/research")} onClick={() => trackPortfolioEvent("research_atlas_opened")}>View all research and practice <ArrowDownRight size={17} aria-hidden="true" /></a>
       </section>

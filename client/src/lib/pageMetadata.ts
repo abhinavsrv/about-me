@@ -26,6 +26,10 @@ export const portfolioPageMetadata = {
     title: "Outputs Record — Abhinav Srivastava",
     description: "A sourced public record of approved reproductions, software practice, applied systems, and credentials by Abhinav Srivastava.",
   },
+  mentalRoBertaJournal: {
+    title: "Mental-RoBERTa Research Journal — Abhinav Srivastava",
+    description: "A research journal for the hierarchical, risk-aware Mental-RoBERTa framework for early multi-class mental-health text screening and human-review prioritisation.",
+  },
 } as const satisfies Record<string, PageMetadata>;
 
 export function applyPageMetadata(metadata: PageMetadata, documentRef: Document = document) {

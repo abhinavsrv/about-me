@@ -92,3 +92,12 @@
 - [x] Verify live GitHub Pages deep links and fallback behavior for all public portfolio routes with no unexpected 404s or runtime errors.
 
 - [x] Replace any remaining project-relative portrait assets with static-hosting-compatible CDN URLs.
+
+- [x] Upload the four newly supplied photographs as durable public portfolio assets.
+- [ ] Repair the Profile Record hero media so the portrait renders on GitHub Pages and in the local preview.
+- [x] Add a curated editorial portrait gallery using the newly supplied images.
+- [x] Create a dedicated Mental-RoBERTa research-journal page titled “Hierarchical Risk-Aware Mental-RoBERTa Framework for Early Multi-Class Screening of Mental-Health Conditions and Suicidal Ideation.”
+- [x] Present the supplied Mental-RoBERTa framework, evaluation results, statistical context, and decision-support limitations without overstating clinical claims.
+
+- [ ] Deploy the portrait-gallery and Mental-RoBERTa journal update, then verify the live Profile Record hero has no missing-image or runtime errors.
+- [ ] Verify the live GitHub Pages Mental-RoBERTa journal routes and navigation paths after deployment.

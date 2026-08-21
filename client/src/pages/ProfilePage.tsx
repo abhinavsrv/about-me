@@ -1,12 +1,12 @@
 import AboutSection from "@/components/AboutSection";
 import PortfolioPageHero from "@/components/PortfolioPageHero";
+import ProfilePhotoGallery from "@/components/ProfilePhotoGallery";
 import ResumeSection from "@/components/ResumeSection";
 import SiteShell from "@/components/SiteShell";
 import TrajectorySection from "@/components/TrajectorySection";
 import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
 
-const cafePortrait = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/qJXgbAhpYeLRRiur.jpeg";
-const cafePortraitSmall = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/VnqvCuixroXKspdm.webp";
+const profilePortrait = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/hYtNGszcEmPklUsY.webp";
 
 export default function ProfilePage() {
   usePageMetadata(portfolioPageMetadata.profile);
@@ -18,11 +18,12 @@ export default function ProfilePage() {
         eyebrow="Profile record"
         title={<>Inquiry, before<br /><strong>optimization.</strong></>}
         summary="An undergraduate research practice focused on making advanced systems more reliable, more interpretable, and more useful in consequential settings."
-        image={cafePortrait}
-        imageSmall={cafePortraitSmall}
-        imageAlt="Abhinav Srivastava seated at a café"
-        imageWidth={1240}
-        imageHeight={1226}
+        image={profilePortrait}
+        imageSmall={profilePortrait}
+        imageAlt="Abhinav Srivastava seated on a garden bench in a blue suit"
+        imageWidth={1152}
+        imageHeight={2048}
+        imagePosition="50% 59%"
         caption="Portrait study / evidence-led practice"
         marks={<><span>Undergraduate researcher</span><span>Computer science</span><span>New Delhi, India</span></>}
       />
@@ -36,6 +37,7 @@ export default function ProfilePage() {
         </div>
       </section>
 
+      <ProfilePhotoGallery />
       <AboutSection />
       <TrajectorySection />
       <ResumeSection />
