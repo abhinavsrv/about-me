@@ -5,8 +5,8 @@ import SiteShell from "@/components/SiteShell";
 import TrajectorySection from "@/components/TrajectorySection";
 import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
 
-const cafePortrait = "/manus-storage/abhinav-cafe-portrait_29960cc0.jpeg";
-const cafePortraitSmall = "/manus-storage/abhinav-cafe-portrait-640_38f08074.webp";
+const cafePortrait = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/qJXgbAhpYeLRRiur.jpeg";
+const cafePortraitSmall = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/VnqvCuixroXKspdm.webp";
 
 export default function ProfilePage() {
   usePageMetadata(portfolioPageMetadata.profile);

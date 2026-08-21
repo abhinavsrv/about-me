@@ -74,7 +74,7 @@
 
 - [x] Correct the production bundle chunking issue that prevents the live React application from mounting, then republish and verify the rendered controls.
 
-- [ ] Configure and publish the complete static portfolio to the `abhinavsrv/about-me` GitHub repository for GitHub Pages at `/about-me/`.
+- [x] Configure and publish the complete static portfolio to the `abhinavsrv/about-me` GitHub repository for GitHub Pages at `/about-me/`.
 - [ ] Verify the GitHub Actions Pages workflow and public `abhinavsrv.github.io/about-me` deployment without runtime or route errors.
 
 - [x] Make the user-approved `abhinavsrv/about-me` repository public so GitHub Pages can serve the portfolio project site.
@@ -88,3 +88,7 @@
 - [ ] Eliminate static GitHub Pages runtime request errors by disabling unavailable server-backed queries when the portfolio is served from the project-site build.
 
 - [x] Replace the sunlit-window homepage profile portrait with the newly uploaded photograph while retaining responsive editorial framing.
+
+- [ ] Verify live GitHub Pages deep links and fallback behavior for all public portfolio routes with no 404s or runtime errors.
+
+- [ ] Replace any remaining project-relative portrait assets with static-hosting-compatible CDN URLs.

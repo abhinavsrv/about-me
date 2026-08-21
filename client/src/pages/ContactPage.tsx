@@ -3,8 +3,8 @@ import PortfolioPageHero from "@/components/PortfolioPageHero";
 import SiteShell from "@/components/SiteShell";
 import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
 
-const windowPortrait = "/manus-storage/abhinav-window-portrait_0ff0625e.webp";
-const windowPortraitSmall = "/manus-storage/abhinav-window-portrait-640_4127cd31.webp";
+const windowPortrait = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/gyPywLWfdmUjXDvJ.webp";
+const windowPortraitSmall = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/txgoBXKzUBWfjGmh.webp";
 
 export default function ContactPage() {
   usePageMetadata(portfolioPageMetadata.contact);
