@@ -24,7 +24,6 @@ export default function ContactSection() {
       </div>
       <div className="footer-strip">
         <span>© 2026 Abhinav Srivastava</span>
-        <span>Static by design · Ready for GitHub Pages</span>
       </div>
     </footer>
   );

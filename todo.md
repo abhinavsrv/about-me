@@ -117,6 +117,8 @@
 - [x] Add a dedicated approved-certificates section to the Research Directions page.
 - [x] Add an accessible smooth-scroll page-jump menu for the academic record, credentials, and forthcoming journal sections.
 - [x] Enhance the Research Directions page with Apple-like scroll-linked motion while preserving reduced-motion behavior.
-- [ ] Deploy the certificate, smooth-navigation, and motion update, then verify the live Research Directions page.
+- [x] Deploy the certificate, smooth-navigation, and motion update, then verify the live Research Directions page.
 
 - [x] Remove all user-facing “Profile-9 record,” “LinkedIn lists,” and related source-attribution wording from portfolio copy.
+
+- [x] Remove the visitor-facing “STATIC BY DESIGN · READY FOR GITHUB PAGES” label.
