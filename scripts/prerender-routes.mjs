@@ -11,7 +11,8 @@ const routeMetadata = {
   profile: ["Profile — Abhinav Srivastava", "Profile, research orientation, and trajectory of Abhinav Srivastava, an undergraduate researcher in trustworthy AI and research systems."],
   contact: ["Contact — Abhinav Srivastava", "Contact Abhinav Srivastava for research conversations and collaborations in trustworthy AI, healthcare NLP, and efficient model systems."],
   outputs: ["Outputs Record — Abhinav Srivastava", "A sourced public record of approved reproductions, software practice, applied systems, and credentials by Abhinav Srivastava."],
-  "work/mental-roberta": ["Mental-RoBERTa — Abhinav Srivastava", "A scoped research-practice record for Mental-RoBERTa, represented with explicit evidence boundaries."],
+  "research/mental-roberta": ["Mental-RoBERTa Research Journal — Abhinav Srivastava", "A research journal for the hierarchical, risk-aware Mental-RoBERTa framework for early multi-class mental-health text screening and human-review prioritisation."],
+  "work/mental-roberta": ["Mental-RoBERTa Research Journal — Abhinav Srivastava", "A research journal for the hierarchical, risk-aware Mental-RoBERTa framework for early multi-class mental-health text screening and human-review prioritisation."],
   "work/dense-distillation": ["Alignment-Free Dense Distillation — Abhinav Srivastava", "An independent cross-modal medical-image transfer reproduction record with explicit implementation boundaries."],
   "work/region-infinity": ["Region Infinity Model Systems — Abhinav Srivastava", "A scoped applied-systems record of transformer-LLM optimization and efficient inference work."],
 };

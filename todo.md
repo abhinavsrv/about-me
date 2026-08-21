@@ -101,3 +101,7 @@
 
 - [ ] Deploy the portrait-gallery and Mental-RoBERTa journal update, then verify the live Profile Record hero has no missing-image or runtime errors.
 - [ ] Verify the live GitHub Pages Mental-RoBERTa journal routes and navigation paths after deployment.
+- [ ] Prerender both public Mental-RoBERTa journal route aliases so GitHub Pages serves them without an initial fallback 404 response.
+
+- [ ] Deploy the prerendered Mental-RoBERTa journal aliases and verify the research route has no initial fallback 404 request.
+- [ ] Verify the work-route alias loads directly on live GitHub Pages without fallback or browser request errors.
