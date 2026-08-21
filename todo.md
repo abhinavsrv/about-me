@@ -80,3 +80,5 @@
 - [ ] Make the user-approved `abhinavsrv/about-me` repository public so GitHub Pages can serve the portfolio project site.
 
 - [ ] Correct the GitHub Pages workflow setup order so pnpm is available before dependency-cache initialization, then rerun the deployment.
+
+- [ ] Remove the duplicate pnpm version declaration in the GitHub Pages workflow so it uses the repository-pinned package-manager version.
