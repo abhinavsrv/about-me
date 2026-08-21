@@ -2,7 +2,7 @@
  * Obsidian Precision style reminder: this is a human editorial pause between research claims and the work record.
  * It names only verified source limits, rather than implying unavailable publications or undisclosed projects.
  */
-const portraitUrl = "/manus-storage/abhinav-window-portrait-2025_f491b69c.webp";
+const portraitUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/AYYWhxMsBwRHbyLu.webp";
 
 export default function AboutSection() {
   return (
