@@ -76,3 +76,7 @@
 
 - [ ] Configure and publish the complete static portfolio to the `abhinavsrv/about-me` GitHub repository for GitHub Pages at `/about-me/`.
 - [ ] Verify the GitHub Actions Pages workflow and public `abhinavsrv.github.io/about-me` deployment without runtime or route errors.
+
+- [ ] Make the user-approved `abhinavsrv/about-me` repository public so GitHub Pages can serve the portfolio project site.
+
+- [ ] Correct the GitHub Pages workflow setup order so pnpm is available before dependency-cache initialization, then rerun the deployment.
