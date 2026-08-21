@@ -3,7 +3,7 @@ import { rm } from "node:fs/promises";
 
 const productionUrl = process.argv[2] || "https://folio2027-cudcewte.manus.space/";
 const verificationMode = process.argv[3] || "hold";
-const port = 9333;
+const port = 9300 + (process.pid % 500);
 const profilePath = "/tmp/folio-live-cinematic-profile";
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -113,13 +113,16 @@ async function main() {
         browserErrors: ${JSON.stringify(browserErrors)},
         failedRequests: ${JSON.stringify(failedRequests)},
         intro: Boolean(document.querySelector('.cinematic-intro')),
-        sound: document.body.innerText.includes('Enable sound'),
-        skip: document.body.innerText.includes('Skip intro'),
-        replay: document.body.innerText.includes('Replay'),
-        notFound: document.body.innerText.includes('Page Not Found')
+        sound: (document.body?.innerText || '').includes('Enable sound'),
+        skip: (document.body?.innerText || '').includes('Skip intro'),
+        replay: (document.body?.innerText || '').includes('Replay'),
+        notFound: (document.body?.innerText || '').includes('Page Not Found')
       })`,
       returnByValue: true,
     });
+    if (typeof result?.value !== "string") {
+      throw new Error(`Live-page evaluation did not return a JSON payload: ${JSON.stringify(result)}`);
+    }
     const checks = JSON.parse(result.value);
     console.log(JSON.stringify(checks));
     const fallbackRequestPath = new URL(productionUrl).pathname;

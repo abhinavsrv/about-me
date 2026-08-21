@@ -6,9 +6,12 @@
     <title>Redirecting…</title>
     <script>
       (function () {
-        var base = new URL("./", window.location.href).pathname;
+        var base = window.location.pathname.indexOf("/about-me/") === 0 ? "/about-me/" : "/";
         var route = window.location.pathname.slice(base.length) || "/";
-        var target = base + "?p=" + encodeURIComponent("/" + route.replace(/^\/+/, "")) + window.location.search + window.location.hash;
+        var parameters = new URLSearchParams(window.location.search);
+        parameters.delete("p");
+        var remainingQuery = parameters.toString();
+        var target = base + "?p=" + encodeURIComponent("/" + route.replace(/^\/+/, "")) + (remainingQuery ? "&" + remainingQuery : "") + window.location.hash;
         window.location.replace(target);
       })();
     </script>
