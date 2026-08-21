@@ -41,7 +41,7 @@ export default function Home() {
             <span>2026</span>
           </div>
           <div className="hero-portrait-frame">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/QrDQxLNtAPftnhMd.webp" srcSet="/manus-storage/abhinav-window-seated-640_f88b9a16.webp 640w, https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/QrDQxLNtAPftnhMd.webp 768w" sizes="(max-width: 760px) 88vw, 43vw" alt="Abhinav Srivastava seated by a window in a sunlit setting" width="768" height="1024" fetchPriority="high" decoding="async" />
+            <img src="/manus-storage/abhinav-window-portrait-2025_f491b69c.webp" sizes="(max-width: 760px) 88vw, 43vw" alt="Abhinav Srivastava in a sunlit window setting" width="2048" height="1536" fetchPriority="high" decoding="async" />
             <div className="portrait-vignette" aria-hidden="true" />
             <span className="portrait-signal" aria-hidden="true" />
           </div>

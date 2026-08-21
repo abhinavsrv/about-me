@@ -2,14 +2,14 @@
  * Obsidian Precision style reminder: this is a human editorial pause between research claims and the work record.
  * It names only verified source limits, rather than implying unavailable publications or undisclosed projects.
  */
-const portraitUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/QrDQxLNtAPftnhMd.webp";
+const portraitUrl = "/manus-storage/abhinav-window-portrait-2025_f491b69c.webp";
 
 export default function AboutSection() {
   return (
     <section id="about" className="about-section" aria-labelledby="about-title">
       <div className="section-index" aria-hidden="true"><span>01A</span><i /></div>
       <div className="about-portrait-wrap">
-        <img src={portraitUrl} srcSet="/manus-storage/abhinav-window-seated-640_f88b9a16.webp 640w, https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/QrDQxLNtAPftnhMd.webp 768w" sizes="(max-width: 760px) 88vw, 35vw" alt="Abhinav Srivastava seated by a window in a sunlit setting" width="768" height="1024" loading="lazy" decoding="async" />
+        <img src={portraitUrl} sizes="(max-width: 760px) 88vw, 35vw" alt="Abhinav Srivastava in a sunlit window setting" width="2048" height="1536" loading="lazy" decoding="async" />
         <span className="about-portrait-beam" aria-hidden="true" />
         <p>ABHINAV / OBSERVATION BEFORE OPTIMIZATION</p>
       </div>

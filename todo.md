@@ -86,3 +86,5 @@
 - [x] Enable GitHub Pages for the public about-me repository with the GitHub Actions build target before rerunning deployment.
 
 - [ ] Eliminate static GitHub Pages runtime request errors by disabling unavailable server-backed queries when the portfolio is served from the project-site build.
+
+- [x] Replace the sunlit-window homepage profile portrait with the newly uploaded photograph while retaining responsive editorial framing.
