@@ -26,9 +26,9 @@ const capabilityGroups = [
 
 const experienceLedger = [
   { index: "01", title: "Research Intern · NTNU", detail: "Early-detection software using transformers and statistical methods, achieving 96% accuracy; no additional clinical-validation claim is made here.", tag: "Healthcare AI" },
-  { index: "02", title: "IT Department · Bank of India", detail: "Risk-assessment and security-management contributions for large-scale banking applications, described on LinkedIn as serving an app with more than 10 million active users.", tag: "Fintech" },
+  { index: "02", title: "IT Department · Bank of India", detail: "Risk-assessment and security-management contributions for a large-scale banking application serving more than 10 million active users.", tag: "Fintech" },
   { index: "03", title: "Production-model work · Region Infinity", detail: "Co-designed a production model using hyperparameter tuning, fine-tuning, and LLMs.", tag: "LLM Systems" },
-  { index: "04", title: "Competitive programming", detail: "Active participant across programming platforms, with Codeforces 1729-rated Expert status stated on LinkedIn.", tag: "Algorithms" },
+  { index: "04", title: "Competitive programming", detail: "Active participant across programming platforms, with Codeforces 1729-rated Expert status.", tag: "Algorithms" },
 ];
 
 export default function CapabilitiesSection() {

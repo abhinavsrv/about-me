@@ -10,7 +10,7 @@ const snapshotEntries = [
     type: "Education",
     title: "B.Tech in Computer Science & Engineering",
     organization: "Birla Institute of Technology, Mesra",
-    detail: "Current undergraduate study in computer science and engineering, with AI, data mining, systems, and software-engineering coursework listed on LinkedIn.",
+    detail: "Current undergraduate study in computer science and engineering, including AI, data mining, systems, and software-engineering coursework.",
   },
   {
     range: "May — Jul 2026",
@@ -24,7 +24,7 @@ const snapshotEntries = [
     type: "Advanced study",
     title: "Quantitative Finance & Machine Learning",
     organization: "Indian Institute of Technology, Kharagpur",
-    detail: "Advanced coursework in algorithmic trading, derivatives, machine learning, statistics and probability, and stock markets; LinkedIn lists a 9.5/10 SOQ Advanced grade.",
+    detail: "Advanced coursework in algorithmic trading, derivatives, machine learning, statistics and probability, and stock markets; SOQ Advanced grade: 9.5/10.",
   },
 ];
 

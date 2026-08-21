@@ -49,7 +49,7 @@ export const projects: Project[] = [
     description: "Machine-learning prototype work for risk assessment and security management in banking applications.",
     evidence: "LinkedIn records comprehensive factor analysis intended to enhance an application described as having more than 10 million active users.",
     stack: ["Risk Assessment", "Factor Analysis", "Security Management", "Banking"],
-    detail: { question: "How can risk and security management be structured for high-scale banking applications?", approach: "Developed a machine-learning prototype and conducted factor analysis during the Bank of India internship.", evidence: "Portfolio wording is limited to the authenticated LinkedIn record and does not expose proprietary system details or personal customer data.", scope: "Artificial Intelligence Intern · Bank of India · May–July 2026." },
+    detail: { question: "How can risk and security management be structured for high-scale banking applications?", approach: "Developed a machine-learning prototype and conducted factor analysis during the Bank of India internship.", evidence: "This portfolio intentionally excludes proprietary system details and personal customer data.", scope: "Artificial Intelligence Intern · Bank of India · May–July 2026." },
   },
   {
     id: "region-infinity", number: "04", category: "Applied research", track: "Applied Work", focus: "LLM Systems", status: "AI/ML Engineer Intern · 2025", title: "Region Infinity Model Systems",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     description: "Ongoing algorithmic problem solving through multiple competitive-programming platforms, primarily Codeforces.",
     evidence: "The profile lists Codeforces 1729-rated Expert status, supporting a practice of concise reasoning under constraints.",
     stack: ["Algorithms", "Data Structures", "Codeforces"], href: "https://codeforces.com/",
-    detail: { question: "How can regular algorithmic practice sharpen reasoning under tight time and resource constraints?", approach: "Participates in competitive-programming contests across multiple platforms, primarily Codeforces.", evidence: "LinkedIn identifies a Codeforces 1729 rating and Expert status; no contest-history extrapolations are made.", scope: "Ongoing technical practice recorded on LinkedIn." },
+    detail: { question: "How can regular algorithmic practice sharpen reasoning under tight time and resource constraints?", approach: "Participates in competitive-programming contests across multiple platforms, primarily Codeforces.", evidence: "Codeforces rating: 1729, Expert status. No contest-history extrapolations are made.", scope: "Ongoing technical practice." },
   },
 ];
 

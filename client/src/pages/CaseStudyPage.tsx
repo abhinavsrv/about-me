@@ -34,7 +34,7 @@ export default function CaseStudyPage() {
             <div className="case-study-meta"><span>{caseStudy.status}</span><span>{caseStudy.focus}</span></div>
           </div>
           <aside className="case-study-proof" aria-label="Case-study scope">
-            <span>Evidence protocol</span><p>Approved source record only</p><p>Scope and limitation stated</p><p>No unverified performance added</p>
+            <span>Evidence protocol</span><p>Scope and limitation stated</p><p>No private implementation detail</p><p>No unverified performance added</p>
           </aside>
         </header>
 
@@ -55,7 +55,7 @@ export default function CaseStudyPage() {
 
         <footer className="case-study-footer">
           <a href={portfolioPath("/research")}><ArrowLeft size={16} aria-hidden="true" /> Back to research atlas</a>
-          {caseStudy.source ? <a href={caseStudy.source.href} target="_blank" rel="noreferrer">{caseStudy.source.label} <ArrowUpRight size={16} aria-hidden="true" /></a> : <span>External artifact not published in the approved record.</span>}
+          {caseStudy.source ? <a href={caseStudy.source.href} target="_blank" rel="noreferrer">{caseStudy.source.label} <ArrowUpRight size={16} aria-hidden="true" /></a> : <span>External artifact not yet public.</span>}
         </footer>
       </article>
     </SiteShell>

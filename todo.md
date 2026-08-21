@@ -110,5 +110,13 @@
 - [x] Add the highest-value approved content from Profile-9.pdf without duplicating existing portfolio records.
 - [x] Prerender the new Research Directions page for direct GitHub Pages access.
 - [x] Slow the cinematic introduction pacing while preserving skip, replay, sound, and reduced-motion behavior.
-- [ ] Deploy the PDF-supported Research Directions and slower-intro update, then verify the live route and cinematic controls.
+- [x] Deploy the PDF-supported Research Directions and slower-intro update, then verify the live route and cinematic controls.
 - [x] Remove all IEEE Student Branch technical-team references from the new PDF-supported portfolio content.
+
+- [x] Extract approved certificate issuer and completion-date details from the supplied screenshots.
+- [x] Add a dedicated approved-certificates section to the Research Directions page.
+- [x] Add an accessible smooth-scroll page-jump menu for the academic record, credentials, and forthcoming journal sections.
+- [x] Enhance the Research Directions page with Apple-like scroll-linked motion while preserving reduced-motion behavior.
+- [ ] Deploy the certificate, smooth-navigation, and motion update, then verify the live Research Directions page.
+
+- [x] Remove all user-facing “Profile-9 record,” “LinkedIn lists,” and related source-attribution wording from portfolio copy.

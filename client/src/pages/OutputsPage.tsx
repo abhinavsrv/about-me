@@ -6,9 +6,9 @@ import { portfolioPath } from "@/lib/routes";
 
 const outputs = [
   { type: "Reproduction", icon: FolderGit2, title: "Alignment-Free Dense Distillation", status: "Open implementation record", detail: "Independent reproduction of cross-modal medical-image transfer for white-light polyp classification, documented as a scoped implementation study.", href: "https://github.com/abhinavsrv/add-recreation", source: "Repository" },
-  { type: "Software", icon: FileSearch, title: "Mental-RoBERTa research software", status: "Research-practice record", detail: "End-to-end early-screening software using transformer and statistical methods, represented only through the approved research-internship record.", source: "Approved profile record" },
-  { type: "Forthcoming journal", icon: BookOpenCheck, title: "Hierarchical Risk-Aware Mental-RoBERTa", status: "Profile-listed forthcoming · 2026", detail: "The supplied Profile-9 record lists Abhinav Srivastava as primary author of an upcoming international-conference research journal. No public paper, preprint, DOI, or citation link was supplied.", href: portfolioPath("/research/mental-roberta"), source: "Open research journal", internal: true },
-  { type: "Applied systems", icon: ShieldCheck, title: "Region Infinity model systems", status: "Experience record", detail: "Transformer-LLM architecture, optimization, and low-latency inference contributions presented without private implementation details or unverified performance metrics.", source: "Approved profile record" },
+  { type: "Software", icon: FileSearch, title: "Mental-RoBERTa research software", status: "Research-practice record", detail: "End-to-end early-screening software using transformer and statistical methods, presented with clear scope and validation boundaries.", source: "Research practice" },
+  { type: "Forthcoming journal", icon: BookOpenCheck, title: "Hierarchical Risk-Aware Mental-RoBERTa", status: "Forthcoming · 2026", detail: "Abhinav Srivastava is named as primary author of an upcoming international-conference research journal. No public paper, preprint, DOI, or citation link is currently available.", href: portfolioPath("/research/mental-roberta"), source: "Open research journal", internal: true },
+  { type: "Applied systems", icon: ShieldCheck, title: "Region Infinity model systems", status: "Experience record", detail: "Transformer-LLM architecture, optimization, and low-latency inference contributions presented without private implementation details or unverified performance metrics.", source: "Experience record" },
   { type: "Credential", icon: FileCheck2, title: "Quantitative Finance and Machine Learning", status: "SOQ Advanced · 9.5/10", detail: "Standard and advanced study at Indian Institute of Technology, Kharagpur, spanning algorithmic trading, derivatives, machine learning, statistics, and probability.", source: "Approved résumé / profile record" },
 ];
 
@@ -34,7 +34,7 @@ export default function OutputsPage() {
         </div>
       </section>
 
-      <section className="outputs-boundary" aria-labelledby="outputs-boundary-title"><p className="eyebrow">Publication status</p><h2 id="outputs-boundary-title">A forthcoming record—<br />not a public <em>paper yet.</em></h2><p>The supplied profile lists a 2026 upcoming Mental-RoBERTa research journal. The portfolio deliberately distinguishes that forthcoming entry from a published artifact until a paper, preprint, DOI, or citation link is available.</p></section>
+      <section className="outputs-boundary" aria-labelledby="outputs-boundary-title"><p className="eyebrow">Publication status</p><h2 id="outputs-boundary-title">A forthcoming record—<br />not a public <em>paper yet.</em></h2><p>A 2026 Mental-RoBERTa research journal is forthcoming. The portfolio distinguishes that entry from a published artifact until a paper, preprint, DOI, or citation link is available.</p></section>
       <section className="outputs-notes-status" aria-labelledby="outputs-notes-title"><p className="eyebrow">Technical notes</p><h2 id="outputs-notes-title">No approved public<br /><em>technical notes yet.</em></h2><p>Technical notes are intentionally absent from this record until an author-approved public artifact can be linked. Research ideas and private working material are not presented as finished outputs.</p></section>
     </SiteShell>
   );

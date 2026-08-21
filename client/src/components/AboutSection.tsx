@@ -26,7 +26,7 @@ export default function AboutSection() {
         </p>
         <div className="publication-status">
           <span>Publication status</span>
-          <p>The supplied Profile-9 record lists a forthcoming 2026 international-conference research journal on Mental-RoBERTa, with Abhinav Srivastava named as primary author. No public paper, preprint, DOI, or citation link has been supplied, so the portfolio presents it as forthcoming rather than published.</p>
+          <p>A forthcoming 2026 international-conference research journal on Mental-RoBERTa names Abhinav Srivastava as primary author. Until a public paper, preprint, DOI, or citation link is available, it is presented as forthcoming rather than published.</p>
         </div>
       </div>
     </section>
