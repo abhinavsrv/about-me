@@ -39,6 +39,7 @@ async function main() {
     const socket = new WebSocket(target.webSocketDebuggerUrl);
     const pending = new Map();
     const browserErrors = [];
+    const failedRequests = [];
     let sequence = 0;
 
     socket.addEventListener("message", (event) => {
@@ -48,6 +49,12 @@ async function main() {
         browserErrors.push(details.exception?.description || details.exception?.value || details.text);
       }
       if (message.method === "Log.entryAdded" && message.params.entry.level === "error") browserErrors.push(message.params.entry.text);
+      if (message.method === "Network.responseReceived" && message.params.response.status >= 400) {
+        failedRequests.push({ status: message.params.response.status, url: message.params.response.url });
+      }
+      if (message.method === "Network.loadingFailed") {
+        failedRequests.push({ error: message.params.errorText, url: message.params.requestId });
+      }
       if (message.id && pending.has(message.id)) {
         const { resolve, reject } = pending.get(message.id);
         pending.delete(message.id);
@@ -70,6 +77,7 @@ async function main() {
     await command("Page.enable");
     await command("Runtime.enable");
     await command("Log.enable");
+    await command("Network.enable");
     if (verificationMode === "hold") {
       await command("Page.addScriptToEvaluateOnNewDocument", {
         source: `(() => {
@@ -103,6 +111,7 @@ async function main() {
         navigationError: ${JSON.stringify(navigation.errorText || null)},
         rootLength: document.getElementById('root')?.textContent?.length || 0,
         browserErrors: ${JSON.stringify(browserErrors)},
+        failedRequests: ${JSON.stringify(failedRequests)},
         intro: Boolean(document.querySelector('.cinematic-intro')),
         sound: document.body.innerText.includes('Enable sound'),
         skip: document.body.innerText.includes('Skip intro'),
