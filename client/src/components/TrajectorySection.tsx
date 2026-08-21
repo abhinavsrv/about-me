@@ -2,6 +2,7 @@
  * Obsidian Precision style reminder: chronology is a concise evidence trail, not a crowded résumé table.
  */
 import { trpc } from "@/lib/trpc";
+import { isStaticPortfolioBuild } from "@/lib/staticHosting";
 
 const snapshotEntries = [
   {
@@ -28,7 +29,7 @@ const snapshotEntries = [
 ];
 
 export default function TrajectorySection() {
-  const { data: records } = trpc.portfolio.profile.useQuery(undefined, { retry: false, staleTime: 30_000 });
+  const { data: records } = trpc.portfolio.profile.useQuery(undefined, { enabled: !isStaticPortfolioBuild(), retry: false, staleTime: 30_000 });
   const persistedEntries = (records ?? []).filter((record) => record.recordType === "experience" || record.recordType === "education").map((record) => ({
     range: record.periodLabel ?? "Current",
     type: record.recordType === "experience" ? "Experience" : "Education",

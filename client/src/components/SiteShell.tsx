@@ -6,6 +6,7 @@ import { type ReactNode, useEffect, useState } from "react";
 import { trpc } from "@/lib/trpc";
 import { portfolioPath } from "@/lib/routes";
 import { trackPortfolioEvent } from "@/lib/portfolioAnalytics";
+import { isStaticPortfolioBuild } from "@/lib/staticHosting";
 import { cinematicIntroReplayAction, cinematicIntroSkipAction, CINEMATIC_INTRO_STORAGE_KEY, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro, shouldRevealMainContent, type CinematicIntroPhase } from "@/lib/cinematicIntro";
 import { playCinematicSignalCue } from "@/lib/cinematicSound";
 import { useLocation } from "wouter";
@@ -30,7 +31,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
   });
   const [introSoundEnabled, setIntroSoundEnabled] = useState(false);
   const [contentMotionReady, setContentMotionReady] = useState(() => shouldRevealMainContent(introPhase));
-  const { data: settings } = trpc.portfolio.settings.useQuery(undefined, { retry: false, staleTime: 30_000 });
+  const { data: settings } = trpc.portfolio.settings.useQuery(undefined, { enabled: !isStaticPortfolioBuild(), retry: false, staleTime: 30_000 });
   const identityValue = settings?.find((setting) => setting.settingKey === "profile_identity")?.value as { name?: string } | undefined;
   const displayName = identityValue?.name?.toUpperCase() ?? "ABHINAV SRIVASTAVA";
 

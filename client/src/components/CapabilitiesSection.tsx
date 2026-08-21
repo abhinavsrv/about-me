@@ -2,6 +2,7 @@
  * Obsidian Precision style reminder: capability lists are structured field notes, not generic skill-meter widgets.
  */
 import { trpc } from "@/lib/trpc";
+import { isStaticPortfolioBuild } from "@/lib/staticHosting";
 const capabilityGroups = [
   {
     label: "Foundation & reasoning",
@@ -31,7 +32,7 @@ const experienceLedger = [
 ];
 
 export default function CapabilitiesSection() {
-  const { data: records } = trpc.portfolio.profile.useQuery(undefined, { retry: false, staleTime: 30_000 });
+  const { data: records } = trpc.portfolio.profile.useQuery(undefined, { enabled: !isStaticPortfolioBuild(), retry: false, staleTime: 30_000 });
   const persistedLedger = (records ?? []).filter((record) => record.recordType === "experience" || record.recordType === "education" || record.recordType === "credential").slice(0, 5).map((record, index) => ({
     index: String(index + 1).padStart(2, "0"),
     title: `${record.title}${record.organization ? ` · ${record.organization}` : ""}`,

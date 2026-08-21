@@ -8,6 +8,7 @@ import { trpc } from "@/lib/trpc";
 import { getCaseStudy } from "@/lib/caseStudies";
 import { portfolioPath } from "@/lib/routes";
 import { trackPortfolioEvent } from "@/lib/portfolioAnalytics";
+import { isStaticPortfolioBuild } from "@/lib/staticHosting";
 
 export type ProjectTrack = "Research" | "Applied Work" | "Technical Practice";
 export type ProjectFocus = "Healthcare AI" | "Financial Systems" | "LLM Systems" | "Decision Intelligence" | "Algorithms";
@@ -84,7 +85,7 @@ export default function WorkSection() {
   const [activeTrack, setActiveTrack] = useState<ProjectTrack | "All">("All");
   const [activeFocus, setActiveFocus] = useState<ProjectFocus | "All">("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const { data: persistedItems } = trpc.portfolio.items.useQuery(undefined, { retry: false, staleTime: 30_000 });
+  const { data: persistedItems } = trpc.portfolio.items.useQuery(undefined, { enabled: !isStaticPortfolioBuild(), retry: false, staleTime: 30_000 });
   const trackFor = { research: "Research", applied_work: "Applied Work", technical_practice: "Technical Practice" } as const;
   const persistedProjects: Project[] = (persistedItems ?? []).map((item, index) => ({
     id: item.slug,
