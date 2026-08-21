@@ -73,3 +73,6 @@
 - [x] Verify on the final deployed revision that the replay control remains present after the intro completes normally with no runtime errors.
 
 - [x] Correct the production bundle chunking issue that prevents the live React application from mounting, then republish and verify the rendered controls.
+
+- [ ] Configure and publish the complete static portfolio to the `abhinavsrv/about-me` GitHub repository for GitHub Pages at `/about-me/`.
+- [ ] Verify the GitHub Actions Pages workflow and public `abhinavsrv.github.io/about-me` deployment without runtime or route errors.
