@@ -115,15 +115,22 @@ async function main() {
         intro: Boolean(document.querySelector('.cinematic-intro')),
         sound: document.body.innerText.includes('Enable sound'),
         skip: document.body.innerText.includes('Skip intro'),
-        replay: document.body.innerText.includes('Replay')
+        replay: document.body.innerText.includes('Replay'),
+        notFound: document.body.innerText.includes('Page Not Found')
       })`,
       returnByValue: true,
     });
     const checks = JSON.parse(result.value);
     console.log(JSON.stringify(checks));
+    const fallbackRequestPath = new URL(productionUrl).pathname;
+    const onlyExpectedFallbackRequest = checks.failedRequests.length === 1
+      && checks.failedRequests[0]?.status === 404
+      && checks.failedRequests[0]?.url === new URL(productionUrl).origin + fallbackRequestPath;
     const valid = verificationMode === "hold"
       ? checks.intro && checks.sound && checks.skip && checks.replay
-      : !checks.intro && checks.replay && checks.rootLength > 0 && checks.browserErrors.length === 0;
+      : verificationMode === "fallback"
+        ? checks.notFound && checks.rootLength > 0 && onlyExpectedFallbackRequest
+        : !checks.intro && checks.replay && checks.rootLength > 0 && checks.browserErrors.length === 0;
     if (!valid) process.exitCode = 1;
     socket.close();
   } finally {
