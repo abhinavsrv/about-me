@@ -7,7 +7,7 @@ import { trpc } from "@/lib/trpc";
 import { portfolioPath } from "@/lib/routes";
 import { trackPortfolioEvent } from "@/lib/portfolioAnalytics";
 import { isStaticPortfolioBuild } from "@/lib/staticHosting";
-import { cinematicIntroReplayAction, cinematicIntroSkipAction, CINEMATIC_INTRO_STORAGE_KEY, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro, shouldRevealMainContent, type CinematicIntroPhase } from "@/lib/cinematicIntro";
+import { cinematicIntroReplayAction, cinematicIntroSkipAction, CINEMATIC_INTRO_EXIT_DURATION_MS, CINEMATIC_INTRO_PLAY_DURATION_MS, CINEMATIC_INTRO_STORAGE_KEY, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro, shouldRevealMainContent, type CinematicIntroPhase } from "@/lib/cinematicIntro";
 import { playCinematicSignalCue } from "@/lib/cinematicSound";
 import { useLocation } from "wouter";
 
@@ -59,7 +59,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (introPhase === "off") return;
-    const delay = introPhase === "play" ? 1550 : 410;
+    const delay = introPhase === "play" ? CINEMATIC_INTRO_PLAY_DURATION_MS : CINEMATIC_INTRO_EXIT_DURATION_MS;
     const closeTimer = window.setTimeout(() => {
       window.sessionStorage.setItem(CINEMATIC_INTRO_STORAGE_KEY, "seen");
       setIntroPhase((phase) => nextCinematicIntroPhase(phase));

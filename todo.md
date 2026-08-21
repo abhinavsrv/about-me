@@ -94,14 +94,21 @@
 - [x] Replace any remaining project-relative portrait assets with static-hosting-compatible CDN URLs.
 
 - [x] Upload the four newly supplied photographs as durable public portfolio assets.
-- [ ] Repair the Profile Record hero media so the portrait renders on GitHub Pages and in the local preview.
+- [x] Repair the Profile Record hero media so the portrait renders on GitHub Pages and in the local preview.
 - [x] Add a curated editorial portrait gallery using the newly supplied images.
 - [x] Create a dedicated Mental-RoBERTa research-journal page titled “Hierarchical Risk-Aware Mental-RoBERTa Framework for Early Multi-Class Screening of Mental-Health Conditions and Suicidal Ideation.”
 - [x] Present the supplied Mental-RoBERTa framework, evaluation results, statistical context, and decision-support limitations without overstating clinical claims.
 
-- [ ] Deploy the portrait-gallery and Mental-RoBERTa journal update, then verify the live Profile Record hero has no missing-image or runtime errors.
-- [ ] Verify the live GitHub Pages Mental-RoBERTa journal routes and navigation paths after deployment.
-- [ ] Prerender both public Mental-RoBERTa journal route aliases so GitHub Pages serves them without an initial fallback 404 response.
+- [x] Deploy the portrait-gallery and Mental-RoBERTa journal update, then verify the live Profile Record hero has no missing-image or runtime errors.
+- [x] Verify the live GitHub Pages Mental-RoBERTa journal routes and navigation paths after deployment.
+- [x] Prerender both public Mental-RoBERTa journal route aliases so GitHub Pages serves them without an initial fallback 404 response.
 
-- [ ] Deploy the prerendered Mental-RoBERTa journal aliases and verify the research route has no initial fallback 404 request.
-- [ ] Verify the work-route alias loads directly on live GitHub Pages without fallback or browser request errors.
+- [x] Deploy the prerendered Mental-RoBERTa journal aliases and verify the research route has no initial fallback 404 request.
+- [x] Verify the work-route alias loads directly on live GitHub Pages without fallback or browser request errors.
+
+- [x] Review Profile-9.pdf and identify only document-supported portfolio sections or pages worth adding.
+- [x] Add the highest-value approved content from Profile-9.pdf without duplicating existing portfolio records.
+- [x] Prerender the new Research Directions page for direct GitHub Pages access.
+- [x] Slow the cinematic introduction pacing while preserving skip, replay, sound, and reduced-motion behavior.
+- [ ] Deploy the PDF-supported Research Directions and slower-intro update, then verify the live route and cinematic controls.
+- [x] Remove all IEEE Student Branch technical-team references from the new PDF-supported portfolio content.

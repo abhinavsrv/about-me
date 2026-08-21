@@ -102,7 +102,7 @@ async function main() {
       if (result.value) break;
       await sleep(75);
     }
-    if (verificationMode === "post") await sleep(2400);
+    if (verificationMode === "post") await sleep(3500);
 
     const { result } = await command("Runtime.evaluate", {
       expression: `JSON.stringify({

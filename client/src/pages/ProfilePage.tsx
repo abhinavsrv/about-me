@@ -5,6 +5,7 @@ import ResumeSection from "@/components/ResumeSection";
 import SiteShell from "@/components/SiteShell";
 import TrajectorySection from "@/components/TrajectorySection";
 import { portfolioPageMetadata, usePageMetadata } from "@/lib/pageMetadata";
+import { portfolioPath } from "@/lib/routes";
 
 const profilePortrait = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030582146/hYtNGszcEmPklUsY.webp";
 
@@ -34,6 +35,7 @@ export default function ProfilePage() {
         <div className="profile-manifesto__copy">
           <p>The throughline across research and applied work is a preference for evidence, calibration, and operational clarity. Those concerns inform work in healthcare NLP, model behavior, risk systems, and efficient LLM pipelines.</p>
           <dl><div><dt>Orientation</dt><dd>Trustworthy AI</dd></div><div><dt>Practice</dt><dd>Research + systems</dd></div><div><dt>Current study</dt><dd>Computer science</dd></div></dl>
+          <a className="profile-directions-link" href={portfolioPath("/directions")}>Open research directions <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 

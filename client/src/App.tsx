@@ -20,11 +20,13 @@ import "./case-studies.css";
 import "./home-index.css";
 import "./outputs.css";
 import "./mental-roberta-journal.css";
+import "./research-directions.css";
 import Home from "./pages/Home";
 const CaseStudyPage = lazy(() => import("./pages/CaseStudyPage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const MentalRoBertaJournalPage = lazy(() => import("./pages/MentalRoBertaJournalPage"));
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
+const ResearchDirectionsPage = lazy(() => import("./pages/ResearchDirectionsPage"));
 const ResearchPage = lazy(() => import("./pages/ResearchPage"));
 const OutputsPage = lazy(() => import("./pages/OutputsPage"));
 function AppRouter() {
@@ -36,6 +38,7 @@ function AppRouter() {
         <Route path="/" component={Home} />
         <Route path="/research" component={ResearchPage} />
         <Route path="/research/mental-roberta" component={MentalRoBertaJournalPage} />
+        <Route path="/directions" component={ResearchDirectionsPage} />
         <Route path="/work/mental-roberta" component={MentalRoBertaJournalPage} />
         <Route path="/work/:slug" component={CaseStudyPage} />
         <Route path="/profile" component={ProfilePage} />

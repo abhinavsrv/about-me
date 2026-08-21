@@ -30,6 +30,10 @@ export const portfolioPageMetadata = {
     title: "Mental-RoBERTa Research Journal — Abhinav Srivastava",
     description: "A research journal for the hierarchical, risk-aware Mental-RoBERTa framework for early multi-class mental-health text screening and human-review prioritisation.",
   },
+  directions: {
+    title: "Research Directions — Abhinav Srivastava",
+    description: "A source-profile-backed map of Abhinav Srivastava's research directions across foundation models, alignment, reliable intelligence, and scalable decision systems.",
+  },
 } as const satisfies Record<string, PageMetadata>;
 
 export function applyPageMetadata(metadata: PageMetadata, documentRef: Document = document) {

@@ -1,4 +1,6 @@
 export const CINEMATIC_INTRO_STORAGE_KEY = "folio-cinematic-intro-v1";
+export const CINEMATIC_INTRO_PLAY_DURATION_MS = 2_600;
+export const CINEMATIC_INTRO_EXIT_DURATION_MS = 540;
 export type CinematicIntroPhase = "play" | "exit" | "off";
 
 export function shouldPlayCinematicIntro(pathname: string, prefersReducedMotion: boolean, hasSeenIntro: boolean) {

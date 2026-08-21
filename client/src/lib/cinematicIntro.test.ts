@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cinematicIntroReplayAction, cinematicIntroSkipAction, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro, shouldRevealMainContent } from "./cinematicIntro";
+import { CINEMATIC_INTRO_EXIT_DURATION_MS, CINEMATIC_INTRO_PLAY_DURATION_MS, cinematicIntroReplayAction, cinematicIntroSkipAction, introLocksScroll, nextCinematicIntroPhase, shouldPlayCinematicIntro, shouldRevealMainContent } from "./cinematicIntro";
 
 describe("shouldPlayCinematicIntro", () => {
   it("plays only on the homepage for a visitor who has not seen it this session", () => {
@@ -30,5 +30,11 @@ describe("shouldPlayCinematicIntro", () => {
     expect(shouldRevealMainContent("play")).toBe(false);
     expect(shouldRevealMainContent("exit")).toBe(false);
     expect(shouldRevealMainContent("off")).toBe(true);
+  });
+
+  it("uses a deliberately slower playback and a coordinated exit", () => {
+    expect(CINEMATIC_INTRO_PLAY_DURATION_MS).toBe(2_600);
+    expect(CINEMATIC_INTRO_EXIT_DURATION_MS).toBe(540);
+    expect(CINEMATIC_INTRO_PLAY_DURATION_MS).toBeGreaterThan(CINEMATIC_INTRO_EXIT_DURATION_MS);
   });
 });
